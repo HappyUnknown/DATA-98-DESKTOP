@@ -47,11 +47,11 @@ namespace DATA_98_DESKTOP.Context
             return null;
         }
 
-        public int NextId() 
+        public int NextId()
         {
             var db = new MasterContext();
-            List<Master> masters = db.Masters.ToList();
-            int nextId = masters[masters.Count - 1].Id + 1;
+            int maxId = db.Masters.Max(x => x.Id);
+            int nextId = maxId + 1;
             db.Dispose();
             return nextId;
         }

@@ -27,8 +27,8 @@ namespace DATA_98_DESKTOP.Context
         public int NextId()
         {
             var db = new OrderContext();
-            List<Order> orders = db.Orders.ToList();
-            int nextId = orders[orders.Count - 1].Id + 1;
+            int maxId = db.Orders.Max(x => x.Id);
+            int nextId = maxId + 1;
             db.Dispose();
             return nextId;
         }

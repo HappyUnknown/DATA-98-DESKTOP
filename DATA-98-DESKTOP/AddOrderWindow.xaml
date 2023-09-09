@@ -67,14 +67,14 @@
         </Viewbox>
         <TextBox x:Name="tbMediaArray" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2"/>
         <Viewbox Grid.Row="10" Grid.Column="1" HorizontalAlignment="Right">
-            <Label Content="MasterID"/>
+            <Label Content="Master's nickname"/>
         </Viewbox>
         <ListBox x:Name="lbMasterID" Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2"/>
         <Viewbox Grid.Row="11" Grid.Column="1" HorizontalAlignment="Right">
             <Label Content="CustomerID"/>
         </Viewbox>
         <ListBox x:Name="lbCustomerID" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnAddCustomer" Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="2" Click="btnAddCustomer_Click">
+        <Button x:Name="btnAddOrder" Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="2" Click="btnAddOrder_Click">
             <Viewbox>
                 <Label Content="Create"/>
             </Viewbox>

@@ -55,5 +55,20 @@ namespace DATA_98_DESKTOP.Context
             db.Dispose();
             return nextId;
         }
+
+        public int GetNicknameId(string nick)
+        {
+            MasterContext db = new MasterContext();
+            List<Master> masters = db.Masters.ToList();
+            for (int i = 0; i < masters.Count; i++)
+            {
+                if (masters[i].Nickname == nick)
+                {
+                    return masters[i].Id;
+                }
+            }
+            db.Dispose();
+            return 0;
+        }
     }
 }

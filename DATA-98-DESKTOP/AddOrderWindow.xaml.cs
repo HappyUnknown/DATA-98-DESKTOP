@@ -28,34 +28,46 @@ namespace DATA_98_DESKTOP
 
             this.master = master;
 
-            OrderContext db = new OrderContext();
+            OrderContext orderDb = new OrderContext();
             try
             {
-                lblId.Content = db.NextId().ToString();
+                lblId.Content = orderDb.NextId().ToString();
             }
             catch (Exception ex) { MessageBox.Show($"Cannot load masters: {ex.Message}"); }
-            finally { db.Dispose(); }
+            finally { orderDb.Dispose(); }
+
+            MasterContext masterDb = new MasterContext();
+            try
+            {
+                lbMasterID.ItemsSource = masterDb.Masters.Select(x => x.Nickname).ToList();
+            }
+            catch (Exception ex) { MessageBox.Show($"Cannot get master nicknames: {ex.Message}"); }
+            finally { masterDb.Dispose(); }
         }
 
-        private void btnAddCustomer_Click(object sender, RoutedEventArgs e)
+        private void btnAddOrder_Click(object sender, RoutedEventArgs e)
         {
-            OrderContext db = new OrderContext();
-            Order order = new Order()
+            OrderContext orderDb = new OrderContext();
+            MasterContext masterDb = new MasterContext();
+            int userId = masterDb.GetNicknameId(lbMasterID.SelectedValue.ToString());
+            if (userId > 0)
             {
-                ApprovalPhase = (AgreementState)int.Parse(tbApprovalPhase.Text),
-                Conclusion = tbConclusion.Text,
-                CustomerId = int.Parse(lbCustomerID.SelectedValue.ToString()),
-                DiagDesc = tbDiagDesc.Text,
-                FaultType = (Malfunction)int.Parse(tbFaultType.Text),
-                FixPrice = int.Parse(tbFixPrice.Text),
-                MasterId = int.Parse(lbMasterID.SelectedValue.ToString()),
-                MediaArray = tbMediaArray.Text,
-                OrderDesc = tbOrderDesc.Text
-            };
-            db.Orders.Add(order);
-            db.SaveChanges();
-            db.Dispose();
-
+                Order order = new Order()
+                {
+                    ApprovalPhase = (AgreementState)int.Parse(tbApprovalPhase.Text),
+                    Conclusion = tbConclusion.Text,
+                    CustomerId = int.Parse(lbCustomerID.SelectedValue.ToString()),
+                    DiagDesc = tbDiagDesc.Text,
+                    FaultType = (Malfunction)int.Parse(tbFaultType.Text),
+                    FixPrice = int.Parse(tbFixPrice.Text),
+                    MasterId =  userId,
+                    MediaArray = tbMediaArray.Text,
+                    OrderDesc = tbOrderDesc.Text
+                };
+                orderDb.Orders.Add(order);
+                orderDb.SaveChanges();
+                orderDb.Dispose();
+            }
             ProfileWindow window = new ProfileWindow(master);
             Close();
             window.ShowDialog();

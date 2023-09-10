@@ -61,9 +61,7 @@ namespace DATA_98_DESKTOP
             if (db.NicknameRegistered(tbNickname.Text.Trim(' ')))
                 MessageBox.Show("User already registered");
             else if (InputInvalid())
-            {
-
-            }
+                MessageBox.Show("Fill the whole form");
             else
                 try
                 {

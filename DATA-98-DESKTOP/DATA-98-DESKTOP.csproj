@@ -98,7 +98,6 @@
     </Compile>
     <Compile Include="Class\AccessLevel.cs" />
     <Compile Include="Class\AgreementState.cs" />
-    <Compile Include="Class\Customer.cs" />
     <Compile Include="Class\Malfunction.cs" />
     <Compile Include="Class\Master.cs" />
     <Compile Include="Class\Order.cs" />

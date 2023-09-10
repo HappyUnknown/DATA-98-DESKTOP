@@ -25,23 +25,28 @@ namespace DATA_98_DESKTOP
         public PoolWindow(Master master)
         {
             InitializeComponent();
-         
+
             this.master = master;
-            //var db = new OrderContext();
-            //try
-            //{
-            //    db.Orders.Add(new Order() { Id = 1, ApprovalPhase = AgreementState.Approved, Conclusion = "Allshorrific", CustomerId = 1, DiagDesc = "Allsbad", FaultType = Malfunction.CantEnable, FixPrice = 123, MasterId = 1, MediaArray = "https://localhost", OrderDesc = "Fix it tomorrow" });
+            RefreshPool();
+        }
 
-            //    db.SaveChanges();
-            //    gdOrders.ItemsSource = db.Orders.ToList();
+        void RefreshPool() 
+        {
+            var db = new OrderContext();
+            try
+            {
+                //    db.Orders.Add(new Order() { Id = 1, ApprovalPhase = AgreementState.Approved, Conclusion = "Allshorrific", CustomerId = 1, DiagDesc = "Allsbad", FaultType = Malfunction.CantEnable, FixPrice = 123, MasterId = 1, MediaArray = "https://localhost", OrderDesc = "Fix it tomorrow" });
 
-            //    Order obj = new Order();
-            //    db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+                //    db.SaveChanges();
+                gdOrders.ItemsSource = db.Orders.ToList();
+
+                //    Order obj = new Order();
+                //    db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnGoToProfile_Click(object sender, RoutedEventArgs e)
@@ -63,6 +68,9 @@ namespace DATA_98_DESKTOP
             OrderContext db = new OrderContext();
             var orders = db.Orders.ToList();
             orders[gdOrders.SelectedIndex].MasterId = master.Id;
+            db.SaveChanges();
+            db.Dispose();
+            RefreshPool();
         }
     }
 }

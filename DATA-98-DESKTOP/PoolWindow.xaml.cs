@@ -66,8 +66,43 @@ namespace DATA_98_DESKTOP
         private void btnAcceptOrder_Click(object sender, RoutedEventArgs e)
         {
             OrderContext db = new OrderContext();
-            var orders = db.Orders.ToList();
-            orders[gdOrders.SelectedIndex].MasterId = master.Id;
+            db.SetOrderMaster(gdOrders.SelectedIndex, master.Id);
+            db.SaveChanges();
+            db.Dispose();
+            RefreshPool();
+        }
+
+        private void btnApproveOrder_Click(object sender, RoutedEventArgs e)
+        {
+            OrderContext db = new OrderContext();
+            db.ApproveOrder(gdOrders.SelectedIndex);
+            db.SaveChanges();
+            db.Dispose();
+            RefreshPool();
+        }
+
+        private void btnDisapproveOrder_Click(object sender, RoutedEventArgs e)
+        {
+            OrderContext db = new OrderContext();
+            db.DisapproveOrder(gdOrders.SelectedIndex);
+            db.SaveChanges();
+            db.Dispose();
+            RefreshPool();
+        }
+
+        private void btnMarkDone_Click(object sender, RoutedEventArgs e)
+        {
+            OrderContext db = new OrderContext();
+            db.MarkDone(gdOrders.SelectedIndex);
+            db.SaveChanges();
+            db.Dispose();
+            RefreshPool();
+        }
+
+        private void btnIdleOrder_Click(object sender, RoutedEventArgs e)
+        {
+            OrderContext db = new OrderContext();
+            db.IdlizeOrder(gdOrders.SelectedIndex);
             db.SaveChanges();
             db.Dispose();
             RefreshPool();

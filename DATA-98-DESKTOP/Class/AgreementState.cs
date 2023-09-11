@@ -8,8 +8,9 @@ namespace DATA_98_DESKTOP.Class
 {
     enum AgreementState
     {
-        Considering = 1,
-        Issued,
-        Approved
+        Unapproved = 1,
+        Approved,
+        Done,
+        Disapproved
     }
 }

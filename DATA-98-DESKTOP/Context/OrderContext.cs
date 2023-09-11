@@ -26,11 +26,34 @@ namespace DATA_98_DESKTOP.Context
         }
         public int NextId()
         {
-            var db = new OrderContext();
-            int maxId = db.Orders.Max(x => x.Id);
+            int maxId = Orders.Max(x => x.Id);
             int nextId = maxId + 1;
-            db.Dispose();
             return nextId;
+        }
+        public void SetOrderMaster(int orderIndex, int masterId)
+        {
+            var orders = Orders.ToList();
+            orders[orderIndex].MasterId = masterId;
+        }
+        public void IdlizeOrder(int orderIndex)
+        {
+            var orders = Orders.ToList();
+            orders[orderIndex].ApprovalPhase = AgreementState.Unapproved;
+        }
+        public void ApproveOrder(int orderIndex)
+        {
+            var orders = Orders.ToList();
+            orders[orderIndex].ApprovalPhase = AgreementState.Approved;
+        }
+        public void DisapproveOrder(int orderIndex)
+        {
+            var orders = Orders.ToList();
+            orders[orderIndex].ApprovalPhase = AgreementState.Disapproved;
+        }
+        public void MarkDone(int orderIndex)
+        {
+            var orders = Orders.ToList();
+            orders[orderIndex].ApprovalPhase = AgreementState.Done;
         }
     }
 }

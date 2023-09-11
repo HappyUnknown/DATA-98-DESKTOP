@@ -18,7 +18,7 @@ namespace DATA_98_DESKTOP.Class
         public string DiagDesc { get; set; } = "NO_DD";
         public double FixPrice { get; set; } = -1;
         public string Conclusion { get; set; } = "NO_CONCLUSION";
-        public AgreementState ApprovalPhase { get; set; } = AgreementState.Approved;
+        public AgreementState ApprovalPhase { get; set; } = AgreementState.Unapproved;
         public string MediaArray { get; set; } = "NO_ARRAY";
         public int MasterId { get; set; } = 0;
         public int CustomerId { get; set; } = 0;

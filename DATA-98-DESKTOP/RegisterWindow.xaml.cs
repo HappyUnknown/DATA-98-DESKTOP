@@ -28,7 +28,6 @@ namespace DATA_98_DESKTOP
             InitializeComponent();
 
             reliableMaster = master;
-
             MasterContext db = new MasterContext();
             try
             {
@@ -44,6 +43,11 @@ namespace DATA_98_DESKTOP
             tbPassword.Text = "----------";
             tbPhone.Text = "+380380380380";
             lbRightsType.ItemsSource = typeof(AccessLevel).GetEnumValues();
+            if (master == null || master.RightsType != AccessLevel.Admin)
+            {
+                lbRightsType.SelectedIndex = 2;
+                
+            }
         }
 
         string EncryptMD5(string data)

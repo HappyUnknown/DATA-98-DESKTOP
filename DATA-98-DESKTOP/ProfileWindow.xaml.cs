@@ -46,11 +46,10 @@ namespace DATA_98_DESKTOP
         }
         void SetupAccess()
         {
-            if (master.RightsType == AccessLevel.Master)
+            if (master.RightsType == AccessLevel.Customer)
             {
-                btnGoToAddOrder.IsEnabled = false;
-                btnGoToAdmins.IsEnabled = false;
                 btnRegister.IsEnabled = false;
+                btnGoToAdmins.IsEnabled = false;
             }
         }
         private void btnGoToRegister_Click(object sender, RoutedEventArgs e)

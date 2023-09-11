@@ -8,8 +8,8 @@ namespace DATA_98_DESKTOP.Class
 {
     public enum AccessLevel
     {
-        Admin = 1,
+        Customer = 1,
         Master,
-        Customer
+        Admin
     }
 }

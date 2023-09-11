@@ -35,6 +35,12 @@ namespace DATA_98_DESKTOP.Context
             var orders = Orders.ToList();
             orders[orderIndex].MasterId = masterId;
         }
+        public void QuestionOrder(int orderIndex)
+        {
+            var orders = Orders.ToList();
+            orders[orderIndex].ApprovalPhase = AgreementState.Confirmation;
+            orders[orderIndex].MasterId = 0;
+        }
         public void IdlizeOrder(int orderIndex)
         {
             var orders = Orders.ToList();

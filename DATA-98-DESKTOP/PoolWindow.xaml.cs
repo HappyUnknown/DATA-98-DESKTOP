@@ -118,5 +118,14 @@ namespace DATA_98_DESKTOP
             db.Dispose();
             RefreshPool();
         }
+
+        private void btnQuestionOrder_Click(object sender, RoutedEventArgs e)
+        {
+            OrderContext db = new OrderContext();
+            db.QuestionOrder(gdOrders.SelectedIndex);
+            db.SaveChanges();
+            db.Dispose();
+            RefreshPool();
+        }
     }
 }

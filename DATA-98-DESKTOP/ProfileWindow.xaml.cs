@@ -117,5 +117,9 @@ namespace DATA_98_DESKTOP
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
+        private void btnNewIssue_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

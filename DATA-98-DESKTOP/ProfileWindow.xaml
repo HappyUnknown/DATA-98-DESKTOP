@@ -15,6 +15,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -52,6 +53,11 @@
                 <Label Content="Orders" Margin="5 5 5 5"/>
             </Viewbox>
         </Button>
-        <DataGrid x:Name="gdMasterOrders" SelectionChanged="gdMasterOrders_SelectionChanged" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="2"/>
+        <Button x:Name="btnNewIssue" Grid.Row="2" Grid.Column="6" Click="btnNewIssue_Click">
+            <Viewbox>
+                <Label Content="Issue" Margin="5 5 5 5"/>
+            </Viewbox>
+        </Button>
+        <DataGrid x:Name="gdMasterOrders" SelectionChanged="gdMasterOrders_SelectionChanged" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
     </Grid>
 </Window>

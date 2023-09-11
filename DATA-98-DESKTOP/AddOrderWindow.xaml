@@ -34,46 +34,7 @@
         <Viewbox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
             <Label Content="New Order"/>
         </Viewbox>
-        <Viewbox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right">
-            <Label Content="Id"/>
-        </Viewbox>
-        <Label x:Name="lblId" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Viewbox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right">
-            <Label Content="OrderDesc"/>
-        </Viewbox>
-        <TextBox x:Name="tbOrderDesc" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Viewbox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right">
-            <Label Content="FaultType"/>
-        </Viewbox>
-        <TextBox x:Name="tbFaultType" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Viewbox Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right">
-            <Label Content="DiagDesc"/>
-        </Viewbox>
-        <TextBox x:Name="tbDiagDesc" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Viewbox Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right">
-            <Label Content="FixPrice"/>
-        </Viewbox>
-        <TextBox x:Name="tbFixPrice" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Viewbox Grid.Row="7" Grid.Column="1" HorizontalAlignment="Right">
-            <Label Content="Conclusion"/>
-        </Viewbox>
-        <TextBox x:Name="tbConclusion" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Viewbox Grid.Row="8" Grid.Column="1" HorizontalAlignment="Right">
-            <Label Content="ApprovalPhase"/>
-        </Viewbox>
-        <TextBox x:Name="tbApprovalPhase" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Viewbox Grid.Row="9" Grid.Column="1" HorizontalAlignment="Right">
-            <Label Content="MediaArray"/>
-        </Viewbox>
-        <TextBox x:Name="tbMediaArray" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Viewbox Grid.Row="10" Grid.Column="1" HorizontalAlignment="Right">
-            <Label Content="Master's nickname"/>
-        </Viewbox>
-        <ListBox x:Name="lbMasterID" Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Viewbox Grid.Row="11" Grid.Column="1" HorizontalAlignment="Right">
-            <Label Content="CustomerID"/>
-        </Viewbox>
-        <ListBox x:Name="lbCustomerID" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Frame x:Name="fmOrderPage" Source="OrderBasePage.xaml" Grid.Row="2" Grid.Column="1" Grid.RowSpan="10" Grid.ColumnSpan="3"/>
         <Button x:Name="btnAddOrder" Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="2" Click="btnAddOrder_Click">
             <Viewbox>
                 <Label Content="Create"/>

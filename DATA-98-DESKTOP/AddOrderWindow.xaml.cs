@@ -28,51 +28,63 @@ namespace DATA_98_DESKTOP
 
             this.master = master;
 
-            OrderContext orderDb = new OrderContext();
             try
             {
-                lblId.Content = orderDb.NextId().ToString();
+                //(formGrid.FindName("tbOrderDesc") as TextBox).Visibility = Visibility.Collapsed;
             }
-            catch (Exception ex) { MessageBox.Show($"Cannot load masters: {ex.Message}"); }
-            finally { orderDb.Dispose(); }
-
-            MasterContext masterDb = new MasterContext();
-            try
-            {
-                lbMasterID.ItemsSource = masterDb.Masters.Select(x => x.Nickname).ToList();
-            }
-            catch (Exception ex) { MessageBox.Show($"Cannot get master nicknames: {ex.Message}"); }
-            finally { masterDb.Dispose(); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void btnAddOrder_Click(object sender, RoutedEventArgs e)
         {
-            OrderContext orderDb = new OrderContext();
-            MasterContext masterDb = new MasterContext();
-            int userId = masterDb.GetNicknameId(lbMasterID.SelectedValue.ToString());
-            if (userId > 0)
+            try
             {
-                Order order = new Order()
+                OrderContext orderDb = new OrderContext();
+                MasterContext masterDb = new MasterContext();
+                Grid formGrid = (fmOrderPage.Content as OrderBasePage).FindName("gdOrderBase") as Grid;
+                ListBox lbMasterId = formGrid.FindName("lbMasterID") as ListBox;
+                ListBox lbApprovalPhase = formGrid.FindName("lbApprovalPhase") as ListBox;
+                TextBox tbConclusion = formGrid.FindName("tbConclusion") as TextBox;
+                ListBox lbCustomerID = formGrid.FindName("lbCustomerID") as ListBox;
+                TextBox tbDiagDesc = formGrid.FindName("tbDiagDesc") as TextBox;
+                ListBox tbFaultType = formGrid.FindName("lbFaultType") as ListBox;
+                TextBox tbFixPrice = formGrid.FindName("tbFixPrice") as TextBox;
+                TextBox tbMediaArray = formGrid.FindName("tbMediaArray") as TextBox;
+                TextBox tbOrderDesc = formGrid.FindName("tbOrderDesc") as TextBox;
+                try
                 {
-                    ApprovalPhase = (AgreementState)int.Parse(tbApprovalPhase.Text),
-                    Conclusion = tbConclusion.Text,
-                    CustomerId = int.Parse(lbCustomerID.SelectedValue.ToString()),
-                    DiagDesc = tbDiagDesc.Text,
-                    FaultType = (Malfunction)int.Parse(tbFaultType.Text),
-                    FixPrice = int.Parse(tbFixPrice.Text),
-                    MasterId =  userId,
-                    MediaArray = tbMediaArray.Text,
-                    OrderDesc = tbOrderDesc.Text
-                };
-                orderDb.Orders.Add(order);
-                orderDb.SaveChanges();
-                orderDb.Dispose();
+                    int userId = masterDb.GetNicknameId(lbMasterId.SelectedValue.ToString());
+                    int customerId = masterDb.GetNicknameId(lbCustomerID.SelectedValue.ToString());
+                    try
+                    {
+                        if (userId > 0)
+                        {
+                            Order order = new Order()
+                            {
+                                ApprovalPhase = (AgreementState)lbApprovalPhase.SelectedValue,
+                                Conclusion = tbConclusion.Text,
+                                CustomerId = customerId,
+                                DiagDesc = tbDiagDesc.Text,
+                                FaultType = (Malfunction)tbFaultType.SelectedValue,
+                                FixPrice = int.Parse(tbFixPrice.Text),
+                                MasterId = userId,
+                                MediaArray = tbMediaArray.Text,
+                                OrderDesc = tbOrderDesc.Text
+                            };
+                            orderDb.Orders.Add(order);
+                            orderDb.SaveChanges();
+                            orderDb.Dispose();
+                        }
+                        ProfileWindow window = new ProfileWindow(master);
+                        Close();
+                        window.ShowDialog();
+                    }
+                    catch (Exception ex) { MessageBox.Show($"Getting UID: {ex.Message}"); }
+                }
+                catch (Exception ex) { MessageBox.Show($"Frame elements' unparsing: {ex.Message}"); }
             }
-            ProfileWindow window = new ProfileWindow(master);
-            Close();
-            window.ShowDialog();
+            catch (Exception ex) { MessageBox.Show($"Frame unparsing: {ex.Message}"); }
         }
-
         private void btnCancelAddOrder_Click(object sender, RoutedEventArgs e)
         {
             ProfileWindow window = new ProfileWindow(master);

@@ -39,6 +39,7 @@ namespace DATA_98_DESKTOP.Context
         {
             var orders = Orders.ToList();
             orders[orderIndex].ApprovalPhase = AgreementState.Unapproved;
+            orders[orderIndex].MasterId = 0;
         }
         public void ApproveOrder(int orderIndex)
         {

@@ -27,6 +27,7 @@ namespace DATA_98_DESKTOP
             InitializeComponent();
 
             this.master = master;
+            SetupAccess();
 
             OrderContext db = new OrderContext();
             try
@@ -42,6 +43,15 @@ namespace DATA_98_DESKTOP
                 db.Dispose();
             }
             lblNick.Content = master.Nickname;
+        }
+        void SetupAccess()
+        {
+            if (master.RightsType == AccessLevel.Master)
+            {
+                btnGoToAddOrder.IsEnabled = false;
+                btnGoToAdmins.IsEnabled = false;
+                btnRegister.IsEnabled = false;
+            }
         }
         private void btnGoToRegister_Click(object sender, RoutedEventArgs e)
         {

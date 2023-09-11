@@ -59,7 +59,7 @@ namespace DATA_98_DESKTOP
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-            MasterRegisterWindow profileWindow = new MasterRegisterWindow();
+            RegisterWindow profileWindow = new RegisterWindow();
             Close();
             profileWindow.ShowDialog();
         }

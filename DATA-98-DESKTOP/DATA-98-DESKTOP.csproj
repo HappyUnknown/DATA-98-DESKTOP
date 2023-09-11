@@ -85,10 +85,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="AddOrderWindow.xaml.cs">
       <DependentUpon>AddOrderWindow.xaml</DependentUpon>
     </Compile>
@@ -106,19 +102,7 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="Management\MasterManageWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Management\MasterRegisterWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Management\OrderManageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,12 +122,6 @@
   <ItemGroup>
     <Compile Include="Management\MasterManageWindow.xaml.cs">
       <DependentUpon>MasterManageWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Management\MasterRegisterWindow.xaml.cs">
-      <DependentUpon>MasterRegisterWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Management\OrderManageWindow.xaml.cs">
-      <DependentUpon>OrderManageWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PoolWindow.xaml.cs">
       <DependentUpon>PoolWindow.xaml</DependentUpon>

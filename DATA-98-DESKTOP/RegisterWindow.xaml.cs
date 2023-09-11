@@ -89,9 +89,19 @@ namespace DATA_98_DESKTOP
 
         private void btnCancelReg_Click(object sender, RoutedEventArgs e)
         {
-            ProfileWindow profile = new ProfileWindow(reliableMaster);
-            Close();
-            profile.ShowDialog();
+            if (reliableMaster == null)
+            {
+                LoginWindow profile = new LoginWindow();
+                Close();
+                profile.ShowDialog();
+            }
+            else
+            {
+                ProfileWindow profile = new ProfileWindow(reliableMaster);
+                Close();
+                profile.ShowDialog();
+            }
+
         }
     }
 }

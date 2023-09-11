@@ -1,10 +1,7 @@
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\DATA-98-DESKTOP.csproj.AssemblyReference.cache
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\AddOrderWindow.g.cs
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\LoginWindow.g.cs
-E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\MainWindow.g.cs
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\Management\MasterManageWindow.g.cs
-E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\Management\MasterRegisterWindow.g.cs
-E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\Management\OrderManageWindow.g.cs
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\PoolWindow.g.cs
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\ProfileWindow.g.cs
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\RegisterWindow.g.cs
@@ -20,10 +17,7 @@ E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\bin\Debug\EntityFramework.SqlServer.xml
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\AddOrderWindow.baml
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\LoginWindow.baml
-E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\MainWindow.baml
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\Management\MasterManageWindow.baml
-E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\Management\MasterRegisterWindow.baml
-E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\Management\OrderManageWindow.baml
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\PoolWindow.baml
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\ProfileWindow.baml
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP\DATA-98-DESKTOP\obj\Debug\RegisterWindow.baml

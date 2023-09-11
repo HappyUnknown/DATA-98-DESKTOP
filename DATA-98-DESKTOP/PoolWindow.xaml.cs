@@ -27,10 +27,21 @@ namespace DATA_98_DESKTOP
             InitializeComponent();
 
             this.master = master;
+            SetupAccess();
             RefreshPool();
         }
 
-        void RefreshPool() 
+        void SetupAccess()
+        {
+            if (master.RightsType == AccessLevel.Master)
+            {
+                btnIdleOrder.IsEnabled = false;
+                btnApproveOrder.IsEnabled = false;
+                btnDisapproveOrder.IsEnabled = false;
+            }
+        }
+
+        void RefreshPool()
         {
             var db = new OrderContext();
             try

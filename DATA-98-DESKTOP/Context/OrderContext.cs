@@ -44,13 +44,13 @@ namespace DATA_98_DESKTOP.Context
         public void IdlizeOrder(int orderIndex)
         {
             var orders = Orders.ToList();
-            orders[orderIndex].ApprovalPhase = AgreementState.Unapproved;
+            orders[orderIndex].ApprovalPhase = AgreementState.Untaken;
             orders[orderIndex].MasterId = 0;
         }
         public void ApproveOrder(int orderIndex)
         {
             var orders = Orders.ToList();
-            orders[orderIndex].ApprovalPhase = AgreementState.Approved;
+            orders[orderIndex].ApprovalPhase = AgreementState.Taken;
         }
         public void DisapproveOrder(int orderIndex)
         {

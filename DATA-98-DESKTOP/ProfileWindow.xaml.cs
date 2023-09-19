@@ -119,7 +119,13 @@ namespace DATA_98_DESKTOP
 
         private void btnNewIssue_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                NewIssueWindow issueWindow = new NewIssueWindow(master);
+                Close();
+                issueWindow.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

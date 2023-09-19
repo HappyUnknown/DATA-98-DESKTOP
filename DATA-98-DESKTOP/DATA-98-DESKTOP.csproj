@@ -74,6 +74,9 @@
       <DependentUpon>202309091605295_OrderIdInted.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="NewIssueWindow.xaml.cs">
+      <DependentUpon>NewIssueWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OrderBasePage.xaml.cs">
       <DependentUpon>OrderBasePage.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,10 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Management\MasterManageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewIssueWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -8,7 +8,8 @@ namespace DATA_98_DESKTOP.Class
 {
     enum Malfunction
     {
-        CantEnable = 1,
+        Unsigned = 0,
+        CantEnable,
         MatrixIssues,
         BadBattery
     }

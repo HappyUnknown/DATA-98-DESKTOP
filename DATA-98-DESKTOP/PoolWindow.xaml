@@ -23,6 +23,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <DataGrid x:Name="gdOrders" Grid.ColumnSpan="3" Grid.RowSpan="6"/>
+        <Button x:Name="btnEdit" Content="Edit" Click="btnEdit_Click" Grid.RowSpan="6"/>
         <Button x:Name="btnQuestionOrder" Grid.Column="3" Grid.Row="0" Click="btnQuestionOrder_Click">
             <Viewbox>
                 <Label Content="?" Margin="20 10 20 10"/>

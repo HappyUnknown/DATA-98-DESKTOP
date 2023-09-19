@@ -127,5 +127,13 @@ namespace DATA_98_DESKTOP
             db.Dispose();
             RefreshPool();
         }
+
+        // Do it on selection changed
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            Order order = gdOrders.SelectedItem as Order;
+            if (order != null)
+                MessageBox.Show(order.DiagDesc);
+        }
     }
 }

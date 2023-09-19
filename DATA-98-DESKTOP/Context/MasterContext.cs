@@ -48,5 +48,13 @@ namespace DATA_98_DESKTOP.Context
                     return masters[i].Id;
             return 0;
         }
+        public string GetNicknameById(int id)
+        {
+            List<Master> masters = Masters.ToList();
+            for (int i = 0; i < masters.Count; i++)
+                if (masters[i].Id == id) 
+                    return masters[i].Nickname;
+            return "NO_NICKNAME";
+        }
     }
 }

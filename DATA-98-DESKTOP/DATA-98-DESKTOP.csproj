@@ -65,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EditOrderWindow.xaml.cs">
+      <DependentUpon>EditOrderWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202309091453563_InitialCreate.cs" />
     <Compile Include="Migrations\202309091453563_InitialCreate.designer.cs">
       <DependentUpon>202309091453563_InitialCreate.cs</DependentUpon>
@@ -87,6 +90,10 @@
       <DependentUpon>RequestOrder.xaml</DependentUpon>
     </Compile>
     <Page Include="AddOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditOrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

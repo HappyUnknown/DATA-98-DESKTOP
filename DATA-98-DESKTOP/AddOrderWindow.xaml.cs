@@ -27,12 +27,10 @@ namespace DATA_98_DESKTOP
             InitializeComponent();
 
             this.master = master;
-
-            try
-            {
-                //(formGrid.FindName("tbOrderDesc") as TextBox).Visibility = Visibility.Collapsed;
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            var db = new OrderContext();
+            Order order = new Order() { Id = db.NextId(), ApprovalPhase = AgreementState.Confirmation, Conclusion = "", CustomerId = 0, MasterId = master.Id, OrderDesc = "", FixPrice = 0, DiagDesc = "", FaultType = Malfunction.Unsigned, MediaArray = "" };
+            OrderBasePage orderPage = new OrderBasePage(order);
+            fmOrderPage.Navigate(orderPage);
         }
 
         private void btnAddOrder_Click(object sender, RoutedEventArgs e)

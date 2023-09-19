@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace DATA_98_DESKTOP.Class
 {
     [Table("Orders")]
-    class Order
+    public class Order
     {
         [Key]
         public int Id { get; set; } = 0;

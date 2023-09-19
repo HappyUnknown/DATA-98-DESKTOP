@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DATA_98_DESKTOP.Class
 {
-    enum AgreementState
+    public enum AgreementState
     {
         Confirmation = 1,
         Untaken,

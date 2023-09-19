@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DATA_98_DESKTOP.Class
 {
-    enum Malfunction
+    public enum Malfunction
     {
         Unsigned = 0,
         CantEnable,

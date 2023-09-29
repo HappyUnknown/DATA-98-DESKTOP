@@ -24,6 +24,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Viewbox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="Id"/>
@@ -32,40 +33,61 @@
             <Label x:Name="lblId" Content="-"/>
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">
+            <Label Content="ItemName"/>
+        </Viewbox>
+        <TextBox x:Name="tbItemName" Grid.Row="1" Grid.Column="1"/>
+        <Viewbox Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="OrderDesc"/>
         </Viewbox>
-        <TextBox x:Name="tbOrderDesc" Grid.Row="1" Grid.Column="2"/>
-        <Viewbox Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">
+        <TextBox x:Name="tbOrderDesc" Grid.Row="2" Grid.Column="2"/>
+        <Viewbox Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="FaultType"/>
         </Viewbox>
-        <ListBox x:Name="lbFaultType" Grid.Row="2" Grid.Column="2"/>
-        <Viewbox Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right">
+        <ListView x:Name="lbFaultType" Grid.Row="3" Grid.Column="2"/>
+        <Viewbox Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="DiagDesc"/>
         </Viewbox>
-        <TextBox x:Name="tbDiagDesc" Grid.Row="3" Grid.Column="2"/>
-        <Viewbox Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right">
+        <TextBox x:Name="tbDiagDesc" Grid.Row="4" Grid.Column="2"/>
+        <Viewbox Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="FixPrice"/>
         </Viewbox>
-        <TextBox x:Name="tbFixPrice" Grid.Row="4" Grid.Column="2"/>
-        <Viewbox Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right">
+        <TextBox x:Name="tbFixPrice" Grid.Row="5" Grid.Column="2"/>
+        <Viewbox Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="Conclusion"/>
         </Viewbox>
-        <TextBox x:Name="tbConclusion" Grid.Row="5" Grid.Column="2"/>
-        <Viewbox Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right">
+        <TextBox x:Name="tbConclusion" Grid.Row="6" Grid.Column="2"/>
+        <Viewbox Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="ApprovalPhase"/>
         </Viewbox>
-        <ListBox x:Name="lbApprovalPhase" Grid.Row="6" Grid.Column="2"/>
-        <Viewbox Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right">
+        <ListView x:Name="lbApprovalPhase" Grid.Row="7" Grid.Column="2"/>
+        <Viewbox Grid.Row="8" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="MediaArray"/>
         </Viewbox>
-        <TextBox x:Name="tbMediaArray" Grid.Row="7" Grid.Column="2"/>
-        <Viewbox Grid.Row="8" Grid.Column="0" HorizontalAlignment="Right">
+        <Grid Grid.Row="8" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <ListView x:Name="lbMediaArray"/>
+                <Button x:Name="btnAddMedia" Click="btnAddMedia_Click" Grid.Column="1">
+                    <Viewbox>
+                        <Label Content="+"/>
+                    </Viewbox>
+                </Button>
+            </Grid>
+        </Grid>
+        <Viewbox Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="Master's nickname"/>
         </Viewbox>
-        <ListBox x:Name="lbMasterID" Grid.Row="8" Grid.Column="2"/>
-        <Viewbox Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right">
+        <ListBox x:Name="lbMasterID" Grid.Row="9" Grid.Column="2"/>
+        <Viewbox Grid.Row="10" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="CustomerID"/>
         </Viewbox>
-        <ListBox x:Name="lbCustomerID" Grid.Row="9" Grid.Column="2"/>
+        <ListBox x:Name="lbCustomerID" Grid.Row="10" Grid.Column="2"/>
     </Grid>
 </Page>

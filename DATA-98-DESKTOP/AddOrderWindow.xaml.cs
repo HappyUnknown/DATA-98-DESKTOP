@@ -28,7 +28,7 @@ namespace DATA_98_DESKTOP
 
             this.master = master;
             var db = new OrderContext();
-            Order order = new Order() { Id = db.NextId(), ApprovalPhase = AgreementState.Confirmation, Conclusion = "", CustomerId = 0, MasterId = master.Id, OrderDesc = "", FixPrice = 0, DiagDesc = "", FaultType = Malfunction.Unsigned, MediaArray = "" };
+            Order order = new Order() { Id = db.NextId(), ApprovalPhase = AgreementState.Confirmation, Conclusion = "", CustomerId = 0, ItemName = "", MasterId = master.Id, OrderDesc = "", FixPrice = 0, DiagDesc = "", FaultName = Malfunction.Unsigned.ToString(), MediaArray = "" };
             OrderBasePage orderPage = new OrderBasePage(order);
             fmOrderPage.Navigate(orderPage);
         }
@@ -41,13 +41,14 @@ namespace DATA_98_DESKTOP
                 MasterContext masterDb = new MasterContext();
                 Grid formGrid = (fmOrderPage.Content as OrderBasePage).FindName("gdOrderBase") as Grid;
                 ListBox lbMasterId = formGrid.FindName("lbMasterID") as ListBox;
+                TextBox tbItemName = formGrid.FindName("tbItemName") as TextBox;
                 ListBox lbApprovalPhase = formGrid.FindName("lbApprovalPhase") as ListBox;
                 TextBox tbConclusion = formGrid.FindName("tbConclusion") as TextBox;
                 ListBox lbCustomerID = formGrid.FindName("lbCustomerID") as ListBox;
                 TextBox tbDiagDesc = formGrid.FindName("tbDiagDesc") as TextBox;
                 ListBox tbFaultType = formGrid.FindName("lbFaultType") as ListBox;
                 TextBox tbFixPrice = formGrid.FindName("tbFixPrice") as TextBox;
-                TextBox tbMediaArray = formGrid.FindName("tbMediaArray") as TextBox;
+                TextBox tbMediaArray = formGrid.FindName("lbMediaArray") as TextBox;
                 TextBox tbOrderDesc = formGrid.FindName("tbOrderDesc") as TextBox;
                 try
                 {
@@ -63,7 +64,8 @@ namespace DATA_98_DESKTOP
                                 Conclusion = tbConclusion.Text,
                                 CustomerId = customerId,
                                 DiagDesc = tbDiagDesc.Text,
-                                FaultType = (Malfunction)tbFaultType.SelectedValue,
+                                ItemName = tbItemName.Text,
+                                FaultName = tbFaultType.SelectedValue.ToString(),
                                 FixPrice = int.Parse(tbFixPrice.Text),
                                 MasterId = userId,
                                 MediaArray = tbMediaArray.Text,

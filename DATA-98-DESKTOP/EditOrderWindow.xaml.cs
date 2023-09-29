@@ -1,5 +1,6 @@
 ﻿using DATA_98_DESKTOP.Class;
 using DATA_98_DESKTOP.Context;
+using DATA_98_DESKTOP.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace DATA_98_DESKTOP
             TextBox tbFixPrice = orderForm.FindName("tbFixPrice") as TextBox;
             TextBox tbConclusion = orderForm.FindName("tbConclusion") as TextBox;
             ListBox lbApprovalPhase = orderForm.FindName("lbApprovalPhase") as ListBox;
-            TextBox tbMediaArray = orderForm.FindName("tbMediaArray") as TextBox;
+            ListBox lbMediaArray = orderForm.FindName("lbMediaArray") as ListBox;
             ListBox lbMasterID = orderForm.FindName("lbMasterID") as ListBox;
             ListBox lbCustomerID = orderForm.FindName("lbCustomerID") as ListBox;
 
@@ -50,12 +51,12 @@ namespace DATA_98_DESKTOP
             Order orderFound = orders.Where(x => x.Id == int.Parse(lblId.Content.ToString())).FirstOrDefault();
 
             orderFound.OrderDesc = tbOrderDesc.Text;
-            orderFound.FaultType = (Malfunction)lbFaultType.SelectedItem;
+            orderFound.FaultName = lbFaultType.SelectedItem.ToString();
             orderFound.DiagDesc = tbDiagDesc.Text;
             orderFound.FixPrice = int.Parse(tbFixPrice.Text);
             orderFound.Conclusion = tbConclusion.Text;
             orderFound.ApprovalPhase = (AgreementState)lbApprovalPhase.SelectedItem;
-            orderFound.MediaArray = tbMediaArray.Text;
+            orderFound.MediaArray = string.Join(";", lbMediaArray.ItemsAsArray());
             orderFound.CustomerId = (int)lbCustomerID.SelectedItem;
             orderFound.MasterId = (int)lbMasterID.SelectedItem;
 

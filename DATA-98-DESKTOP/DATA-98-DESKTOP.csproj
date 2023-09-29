@@ -47,6 +47,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -65,9 +66,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AppConstants.cs" />
     <Compile Include="EditOrderWindow.xaml.cs">
       <DependentUpon>EditOrderWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\ListBoxExtension.cs" />
     <Compile Include="Migrations\202309091453563_InitialCreate.cs" />
     <Compile Include="Migrations\202309091453563_InitialCreate.designer.cs">
       <DependentUpon>202309091453563_InitialCreate.cs</DependentUpon>
@@ -75,6 +78,10 @@
     <Compile Include="Migrations\202309091605295_OrderIdInted.cs" />
     <Compile Include="Migrations\202309091605295_OrderIdInted.designer.cs">
       <DependentUpon>202309091605295_OrderIdInted.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309260915169_FaultTypeStringified.cs" />
+    <Compile Include="Migrations\202309260915169_FaultTypeStringified.designer.cs">
+      <DependentUpon>202309260915169_FaultTypeStringified.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NewIssueWindow.xaml.cs">
@@ -175,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202309091605295_OrderIdInted.resx">
       <DependentUpon>202309091605295_OrderIdInted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309260915169_FaultTypeStringified.resx">
+      <DependentUpon>202309260915169_FaultTypeStringified.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

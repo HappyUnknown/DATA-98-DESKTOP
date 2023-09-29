@@ -13,8 +13,9 @@ namespace DATA_98_DESKTOP.Class
     {
         [Key]
         public int Id { get; set; } = 0;
+        public string ItemName { get; set; } = "NO_NAME";
         public string OrderDesc { get; set; } = "NO_DESCRIPTION";
-        public Malfunction FaultType { get; set; } = Malfunction.Unsigned;
+        public string FaultName { get; set; } = Malfunction.Unsigned.ToString();
         public string DiagDesc { get; set; } = "NO_DIAGNOSTICS";
         public double FixPrice { get; set; } = -1;
         public string Conclusion { get; set; } = "NO_CONCLUSION";

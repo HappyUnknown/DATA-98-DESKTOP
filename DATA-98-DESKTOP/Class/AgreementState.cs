@@ -11,6 +11,8 @@ namespace DATA_98_DESKTOP.Class
         Confirmation = 1,
         Untaken,
         Taken,
+        CondDiscussion,
+        Due,
         Done,
         Disapproved
     }

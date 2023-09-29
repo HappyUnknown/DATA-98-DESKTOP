@@ -44,22 +44,34 @@ namespace DATA_98_DESKTOP
             catch (Exception ex) { MessageBox.Show($"Cannot get master nicknames: {ex.Message}"); }
             lbFaultType.ItemsSource = typeof(Malfunction).GetEnumValues();
             lbApprovalPhase.ItemsSource = typeof(AgreementState).GetEnumValues();
-
-            if (order != null)
+            try
             {
-
-                lblId.Content = order.Id;
-                tbOrderDesc.Text = order.OrderDesc;
-                tbMediaArray.Text = order.MediaArray;
-                tbFixPrice.Text = order.FixPrice.ToString();
-                tbDiagDesc.Text = order.DiagDesc;
-                tbConclusion.Text = order.Conclusion;
-                lbApprovalPhase.SelectedItem = order.ApprovalPhase;
-                lbMasterID.SelectedItem = masterDb.GetNicknameById(masterDb.Masters.ToList().FirstOrDefault(x => x.Id == masterDb.GetNicknameId(lbMasterID.SelectedItem.ToString())).Id);
-                lbCustomerID.SelectedItem = masterDb.GetNicknameById(masterDb.Masters.ToList().FirstOrDefault(x => x.Id == masterDb.GetNicknameId(lbCustomerID.SelectedItem.ToString())).Id); ;
-                lbFaultType.SelectedItem = order.FaultType;
+                if (order != null)
+                {
+                    lblId.Content = order.Id;
+                    tbOrderDesc.Text = order.OrderDesc;
+                    lbMediaArray.DataContext = order.MediaArray.Split(AppConstants.URL_SPLITTER);
+                    tbFixPrice.Text = order.FixPrice.ToString();
+                    tbDiagDesc.Text = order.DiagDesc;
+                    tbConclusion.Text = order.Conclusion;
+                    lbApprovalPhase.SelectedItem = order.ApprovalPhase;
+                    lbMasterID.SelectedItem = masterDb.GetNicknameById(masterDb.Masters.ToList().FirstOrDefault(x => x.Id == masterDb.GetNicknameId(lbMasterID.SelectedItem.ToString())).Id);
+                    lbCustomerID.SelectedItem = masterDb.GetNicknameById(masterDb.Masters.ToList().FirstOrDefault(x => x.Id == masterDb.GetNicknameId(lbCustomerID.SelectedItem.ToString())).Id); ;
+                    lbFaultType.SelectedItem = order.FaultName;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"OrderBasePage(): {ex.Message}");
             }
             masterDb.Dispose();
+        }
+
+        private void btnAddMedia_Click(object sender, RoutedEventArgs e)
+        {
+            var ofd = new System.Windows.Forms.OpenFileDialog();
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                lbMediaArray.Items.Add(ofd.FileName);
         }
     }
 }

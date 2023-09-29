@@ -1,0 +1,63 @@
+﻿<Page x:Class="DATA_98_DESKTOP_MK2.PageGUI.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:DATA_98_DESKTOP_MK2.PageGUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegisterPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Viewbox Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">
+            <Label Content="Id"/>
+        </Viewbox>
+        <Label Grid.Column="1" Grid.Row="0" x:Name="lblId"/>
+        <Viewbox Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">
+            <Label Content="Email"/>
+        </Viewbox>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="tbEmail"/>
+        <Viewbox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">
+            <Label Content="Phone"/>
+        </Viewbox>
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="tbPhone"/>
+        <Viewbox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">
+            <Label Content="Password"/>
+        </Viewbox>
+        <TextBox Grid.Column="1" Grid.Row="3" x:Name="tbPassword"/>
+        <Viewbox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">
+            <Label Content="FirstName"/>
+        </Viewbox>
+        <TextBox Grid.Column="1" Grid.Row="4" x:Name="tbFirstName"/>
+        <Viewbox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">
+            <Label Content="LastName"/>
+        </Viewbox>
+        <TextBox Grid.Column="1" Grid.Row="5" x:Name="tbLastName"/>
+        <Viewbox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">
+            <Label Content="MiddleName"/>
+        </Viewbox>
+        <TextBox Grid.Column="1" Grid.Row="6" x:Name="tbMiddleName"/>
+        <Viewbox  Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right">
+            <Label Content="Nickname"/>
+        </Viewbox>
+        <TextBox Grid.Column="1" Grid.Row="7" x:Name="tbNickname"/>
+        <Viewbox Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right">
+            <Label Content="RightsType"/>
+        </Viewbox>
+        <ListBox Grid.Column="1" Grid.Row="8" x:Name="lbRightsType"/>
+    </Grid>
+</Page>

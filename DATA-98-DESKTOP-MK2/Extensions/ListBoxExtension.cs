@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DATA_98_DESKTOP_MK2.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,11 @@ namespace DATA_98_DESKTOP_MK2.Extensions
             for (int i = 0; i < array.Length; i++)
                 array[i] = lb.Items[i].ToString();
             return array;
+        }
+        public static string ItemsAsSequence(this ListBox lb)
+        {
+            string[] array = ItemsAsArray(lb);
+            return string.Join(AppConstants.URL_SPLITTER.ToString(), array);
         }
     }
 }

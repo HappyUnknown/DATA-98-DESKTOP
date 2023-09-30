@@ -62,6 +62,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -81,6 +82,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Constants\AppConstants.cs" />
+    <Compile Include="Contexts\OrderContext.cs" />
     <Compile Include="Contexts\UserContext.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Enumerations\AccessLevel.cs" />
@@ -91,7 +93,19 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enumerations\AgreementState.cs" />
     <Compile Include="Extensions\ListBoxExtension.cs" />
-    <Page Include="FormGUI\Admins\UserOverview.xaml">
+    <Page Include="FormGUI\Admins\EditOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormGUI\Admins\NewOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormGUI\Admins\OrdersOverviewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormGUI\Admins\UsersOverviewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,8 +132,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\StringExtension.cs" />
-    <Compile Include="FormGUI\Admins\UserOverview.xaml.cs">
-      <DependentUpon>UserOverview.xaml</DependentUpon>
+    <Compile Include="FormGUI\Admins\EditOrderWindow.xaml.cs">
+      <DependentUpon>EditOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormGUI\Admins\NewOrderWindow.xaml.cs">
+      <DependentUpon>NewOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormGUI\Admins\OrdersOverviewWindow.xaml.cs">
+      <DependentUpon>OrdersOverviewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormGUI\Admins\UsersOverviewWindow.xaml.cs">
+      <DependentUpon>UsersOverviewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="FormGUI\Users\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>

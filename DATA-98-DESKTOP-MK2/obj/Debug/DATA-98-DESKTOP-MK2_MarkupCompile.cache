@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\FILES\GENERAL-PURPOSE\PROJECTS\PROGRAMMING\Source - Visual Studio\Author Apps\DATA-98-DESKTOP-MK2\DATA-98-DESKTOP-MK2\App.xaml
-6-513847019
+91817444096
 
-18-745513991
-16-808444563
-FormGUI\Admins\UserOverview.xaml;FormGUI\Users\LoginWindow.xaml;FormGUI\Users\ProfileWindow.xaml;FormGUI\Users\RegisterWindow.xaml;PageGUI\OrderPage.xaml;PageGUI\RegisterPage.xaml;
+22-1509770350
+17-594057827
+FormGUI\Admins\EditOrderWindow.xaml;FormGUI\Admins\NewOrderWindow.xaml;FormGUI\Admins\OrdersOverviewWindow.xaml;FormGUI\Admins\UsersOverviewWindow.xaml;FormGUI\Users\LoginWindow.xaml;FormGUI\Users\ProfileWindow.xaml;FormGUI\Users\RegisterWindow.xaml;PageGUI\OrderPage.xaml;PageGUI\RegisterPage.xaml;
 
 False
 

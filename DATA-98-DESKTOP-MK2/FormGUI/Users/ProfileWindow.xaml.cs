@@ -36,12 +36,23 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
 
         private void btnGoToOrders_Click(object sender, RoutedEventArgs e)
         {
-
+            OrdersOverviewWindow overview = new OrdersOverviewWindow(user);
+            Close();
+            overview.ShowDialog();
         }
 
         private void btnGoToAddOrder_Click(object sender, RoutedEventArgs e)
         {
-
+            NewOrderWindow orderWindow = new NewOrderWindow(user); // Preliminary to Close() in order to show further
+            try
+            {
+                Close();
+                orderWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"=> {ex.Message}");
+            }
         }
 
         private void btnGoToRegister_Click(object sender, RoutedEventArgs e)
@@ -54,7 +65,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"btnGoToRegister_Click=> {ex.Message}");
             }
         }
 
@@ -68,13 +79,13 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"btnLogout_Click=> {ex.Message}");
             }
         }
 
         private void btnGoToAdmins_Click(object sender, RoutedEventArgs e)
         {
-            UserOverview overviewWindow = new UserOverview(user);
+            UsersOverviewWindow overviewWindow = new UsersOverviewWindow(user);
             Close();
             overviewWindow.ShowDialog();
         }

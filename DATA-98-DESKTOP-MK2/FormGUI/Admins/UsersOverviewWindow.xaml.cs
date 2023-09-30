@@ -18,12 +18,12 @@ using System.Windows.Shapes;
 namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
 {
     /// <summary>
-    /// Interaction logic for UserOverview.xaml
+    /// Interaction logic for UsersOverviewWindow.xaml
     /// </summary>
-    public partial class UserOverview : Window
+    public partial class UsersOverviewWindow : Window
     {
         User user = null;
-        public UserOverview(User user)
+        public UsersOverviewWindow(User user)
         {
             InitializeComponent();
 

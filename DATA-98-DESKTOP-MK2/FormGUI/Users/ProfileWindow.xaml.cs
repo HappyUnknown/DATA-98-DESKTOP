@@ -1,4 +1,5 @@
-﻿using DATA_98_DESKTOP_MK2.Entities;
+﻿using DATA_98_DESKTOP_MK2.Contexts;
+using DATA_98_DESKTOP_MK2.Entities;
 using DATA_98_DESKTOP_MK2.FormGUI.Admins;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,10 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             InitializeComponent();
 
             this.user = user;
+
+            var db = new OrderContext();
+            gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.MasterId == user.ID);
+            db.Dispose();
         }
 
         private void btnNewIssue_Click(object sender, RoutedEventArgs e)

@@ -30,13 +30,19 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             this.user = user;
 
             var db = new OrderContext();
-            gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.MasterId == user.ID);
+            if (user.RightsType == AccessLevel.Customer)
+                gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.CustomerId == user.ID);
+            else
+                gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.MasterId == user.ID);
+
             db.Dispose();
         }
 
         private void btnNewIssue_Click(object sender, RoutedEventArgs e)
         {
-
+            NewIssueWindow issueWindow = new NewIssueWindow(user);
+            Close();
+            issueWindow.ShowDialog();
         }
 
         private void btnGoToOrders_Click(object sender, RoutedEventArgs e)

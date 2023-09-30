@@ -19,6 +19,9 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Viewbox Grid.Column="1">
+            <Label x:Name="lblNickname"/>
+        </Viewbox>
         <Frame x:Name="fmRegisterPage" Grid.Column="1" Grid.Row="1"/>
         <!--WE NEED TO KICK THE HELL OUT HERE-->
         <Button x:Name="btnRegUser" Grid.Column="1" Grid.Row="2" Click="btnRegUser_Click">

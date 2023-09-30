@@ -29,6 +29,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             InitializeComponent();
 
             this.user = user;
+            lblNickname.Content = user == null ? "No responsive user" : $"Responsive user: {user.Nickname} [{user.RightsType}]";
 
             RegisterPage page = new RegisterPage();
             fmRegisterPage.Navigate(page);

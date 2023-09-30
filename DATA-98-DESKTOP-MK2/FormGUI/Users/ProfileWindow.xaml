@@ -7,6 +7,57 @@
         mc:Ignorable="d"
         Title="ProfileWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Viewbox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5">
+            <Label x:Name="lblNick"/>
+        </Viewbox>
+        <Button x:Name="btnLogout" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Click="btnLogout_Click">
+            <Viewbox>
+                <Label Content="Logout" Margin="5 5 5 5"/>
+            </Viewbox>
+        </Button>
+        <Button x:Name="btnRegister" Click="btnGoToRegister_Click" Grid.Row="2" Grid.Column="2">
+            <Viewbox>
+                <Label Content="Register" Margin="5 5 5 5"/>
+            </Viewbox>
+        </Button>
+        <Button x:Name="btnGoToAdmins" Grid.Row="2" Grid.Column="3" Grid.RowSpan="1" Click="btnGoToAdmins_Click">
+            <Viewbox>
+                <Label Content="Admins" Margin="5 5 5 5"/>
+            </Viewbox>
+        </Button>
+        <Button x:Name="btnGoToAddOrder" Grid.Row="2" Grid.Column="4" Click="btnGoToAddOrder_Click">
+            <Viewbox>
+                <Label Content="New Order" Margin="5 5 5 5"/>
+            </Viewbox>
+        </Button>
+        <Button x:Name="btnGoToOrders" Grid.Row="2" Grid.Column="5" Grid.RowSpan="1" Click="btnGoToOrders_Click">
+            <Viewbox>
+                <Label Content="Orders" Margin="5 5 5 5"/>
+            </Viewbox>
+        </Button>
+        <Button x:Name="btnNewIssue" Grid.Row="2" Grid.Column="6" Click="btnNewIssue_Click">
+            <Viewbox>
+                <Label Content="Issue" Margin="5 5 5 5"/>
+            </Viewbox>
+        </Button>
+        <DataGrid x:Name="gdMasterOrders" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
     </Grid>
 </Window>

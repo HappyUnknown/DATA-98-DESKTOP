@@ -20,9 +20,60 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
     /// </summary>
     public partial class ProfileWindow : Window
     {
+        User user;
         public ProfileWindow(User user)
         {
             InitializeComponent();
+
+            this.user = user;
+        }
+
+        private void btnNewIssue_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGoToOrders_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGoToAddOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGoToAdmins_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGoToRegister_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow registerWindow = new RegisterWindow(user); // Preliminary to Close() in order to show further
+            try
+            {
+                Close();
+                registerWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow signInWindow = new LoginWindow(); // Preliminary to Close() in order to show further
+            try
+            {
+                Close();
+                signInWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -24,10 +24,12 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
     /// </summary>
     public partial class RegisterPage : Page
     {
-        public RegisterPage()
+        public User user;
+        public RegisterPage(User user = null)
         {
             InitializeComponent();
 
+            this.user = user;
             UserContext db = new UserContext();
             try
             {
@@ -45,7 +47,21 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
             tbNickname.Text = "john.doe";
             tbPassword.Text = "12345";
             tbPhone.Text = "+380380380380";
-            lbRightsType.ItemsSource = typeof(AccessLevel).GetEnumValues();
+            var rights = typeof(AccessLevel).GetEnumValues();
+            List<AccessLevel> rightList = new List<AccessLevel>();
+            for (int i = 0; i < rights.GetLength(0); i++)
+                rightList.Add((AccessLevel)rights.GetValue(i));
+            if (user == null)
+            {
+                rightList.RemoveAt(rightList.Count - 1);
+                rightList.RemoveAt(rightList.Count - 1);
+            }
+            //else if(user.RightsType == AccessLevel.Customer || user.RightsType == AccessLevel.Master)
+            //{
+            //    rightList.RemoveAt(rightList.Count - 1);
+            //    rightList.RemoveAt(rightList.Count - 1);
+            //}
+            lbRightsType.ItemsSource = rightList;
         }
     }
 }

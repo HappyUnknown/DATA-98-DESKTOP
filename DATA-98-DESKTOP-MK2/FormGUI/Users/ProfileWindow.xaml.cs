@@ -1,4 +1,5 @@
 ﻿using DATA_98_DESKTOP_MK2.Entities;
+using DATA_98_DESKTOP_MK2.FormGUI.Admins;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,11 +44,6 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
 
         }
 
-        private void btnGoToAdmins_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnGoToRegister_Click(object sender, RoutedEventArgs e)
         {
             RegisterWindow registerWindow = new RegisterWindow(user); // Preliminary to Close() in order to show further
@@ -74,6 +70,13 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnGoToAdmins_Click(object sender, RoutedEventArgs e)
+        {
+            UserOverview overviewWindow = new UserOverview(user);
+            Close();
+            overviewWindow.ShowDialog();
         }
     }
 }

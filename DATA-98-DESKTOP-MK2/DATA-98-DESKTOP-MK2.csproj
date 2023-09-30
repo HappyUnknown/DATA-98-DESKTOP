@@ -91,6 +91,10 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enumerations\AgreementState.cs" />
     <Compile Include="Extensions\ListBoxExtension.cs" />
+    <Page Include="FormGUI\Admins\UserOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FormGUI\Users\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,6 +118,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="FormGUI\Admins\UserOverview.xaml.cs">
+      <DependentUpon>UserOverview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormGUI\Users\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>

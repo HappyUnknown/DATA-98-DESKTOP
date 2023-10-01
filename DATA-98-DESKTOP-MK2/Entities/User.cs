@@ -20,5 +20,6 @@ namespace DATA_98_DESKTOP_MK2.Entities
         public string LastName { get; set; } = "LASTNAME_NON_ESTABLISHED";
         public string MiddleName { get; set; } = "MIDDLENAME_NON_ESTABLISHED";
         public AccessLevel RightsType { get; set; } = AccessLevel.Customer;
+        public bool Banned { get; set; } = false;
     }
 }

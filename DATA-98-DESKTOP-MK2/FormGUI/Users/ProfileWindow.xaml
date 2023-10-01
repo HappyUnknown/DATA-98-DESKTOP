@@ -16,6 +16,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -56,6 +57,16 @@
         <Button x:Name="btnNewIssue" Grid.Row="2" Grid.Column="6" Click="btnNewIssue_Click">
             <Viewbox>
                 <Label Content="Issue" Margin="5 5 5 5"/>
+            </Viewbox>
+        </Button>
+        <Button x:Name="btnGoToPool" Grid.Row="2" Grid.Column="7" Click="btnGoToPool_Click">
+            <Viewbox>
+                <Label Content="Pool" Margin="5 5 5 5"/>
+            </Viewbox>
+        </Button>
+        <Button x:Name="btnRejectOrder" Click="btnRejectOrder_Click" Grid.Row="3" Grid.Column="7" Grid.RowSpan="2">
+            <Viewbox>
+                <Label Content="Reject" Margin="5 5 5 5"/>
             </Viewbox>
         </Button>
         <DataGrid x:Name="gdMasterOrders" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="2"/>

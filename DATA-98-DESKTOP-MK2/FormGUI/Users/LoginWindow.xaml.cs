@@ -40,9 +40,13 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                 if (user != null)
                     try
                     {
-                        ProfileWindow profileWindow = new ProfileWindow(user);
-                        Close();
-                        profileWindow.ShowDialog();
+                        if (!user.Banned)
+                        {
+                            ProfileWindow profileWindow = new ProfileWindow(user);
+                            Close();
+                            profileWindow.ShowDialog();
+                        }
+                        else MessageBox.Show("User was banned");
                     }
                     catch (Exception ex)
                     {

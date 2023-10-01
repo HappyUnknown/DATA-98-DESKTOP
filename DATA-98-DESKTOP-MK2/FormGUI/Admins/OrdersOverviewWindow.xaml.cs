@@ -27,11 +27,8 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
         {
             InitializeComponent();
 
+            RefreshPool();
             this.user = user;
-
-            var db = new OrderContext();
-            gdOrders.ItemsSource = db.Orders.ToList();
-            db.Dispose();
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -66,55 +63,103 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
 
         private void btnQuestionOrder_Click(object sender, RoutedEventArgs e)
         {
-            OrderContext db = new OrderContext();
-            db.QuestionOrder(gdOrders.SelectedIndex);
-            db.SaveChanges();
-            db.Dispose();
-            RefreshPool();
+            if (gdOrders.SelectedIndex >= 0)
+            {
+                if (gdOrders.SelectedIndex < gdOrders.Items.Count)
+                {
+                    OrderContext db = new OrderContext();
+                    db.QuestionOrder(gdOrders.SelectedIndex);
+                    db.SaveChanges();
+                    db.Dispose();
+                    RefreshPool();
+                }
+                else MessageBox.Show("Order above possible range is selected");
+            }
+            else MessageBox.Show("Order not selected");
         }
 
         private void btnIdleOrder_Click(object sender, RoutedEventArgs e)
         {
-            OrderContext db = new OrderContext();
-            db.IdlizeOrder(gdOrders.SelectedIndex);
-            db.SaveChanges();
-            db.Dispose();
-            RefreshPool();
+            if (gdOrders.SelectedIndex >= 0)
+            {
+                if (gdOrders.SelectedIndex >= gdOrders.Items.Count)
+                {
+                    OrderContext db = new OrderContext();
+                    db.IdlizeOrder(gdOrders.SelectedIndex);
+                    db.SaveChanges();
+                    db.Dispose();
+                    RefreshPool();
+                }
+                else MessageBox.Show("Order above possible range is selected");
+            }
+            else MessageBox.Show("Order not selected");
         }
 
         private void btnAcceptOrder_Click(object sender, RoutedEventArgs e)
         {
-            OrderContext db = new OrderContext();
-            db.SetOrderMaster(gdOrders.SelectedIndex, user.ID);
-            db.SaveChanges();
-            db.Dispose();
-            RefreshPool();
+            if (gdOrders.SelectedIndex >= 0)
+            {
+                if (gdOrders.SelectedIndex >= gdOrders.Items.Count)
+                {
+                    OrderContext db = new OrderContext();
+                    db.SetOrderMaster(gdOrders.SelectedIndex, user.ID);
+                    db.SaveChanges();
+                    db.Dispose();
+                    RefreshPool();
+                }
+                else MessageBox.Show("Order above possible range is selected");
+            }
+            else MessageBox.Show("Order not selected");
         }
 
         private void btnApproveOrder_Click(object sender, RoutedEventArgs e)
         {
-            OrderContext db = new OrderContext();
-            db.ApproveOrder(gdOrders.SelectedIndex);
-            db.SaveChanges();
-            db.Dispose();
-            RefreshPool();
+            if (gdOrders.SelectedIndex >= 0)
+            {
+                if (gdOrders.SelectedIndex >= gdOrders.Items.Count)
+                {
+                    OrderContext db = new OrderContext();
+                    db.ApproveOrder(gdOrders.SelectedIndex);
+                    db.SaveChanges();
+                    db.Dispose();
+                    RefreshPool();
+                }
+                else MessageBox.Show("Order above possible range is selected");
+            }
+            else MessageBox.Show("Order not selected");
         }
 
         private void btnDisapproveOrder_Click(object sender, RoutedEventArgs e)
         {
-            OrderContext db = new OrderContext();
-            db.DisapproveOrder(gdOrders.SelectedIndex);
-            db.SaveChanges();
-            db.Dispose();
-            RefreshPool();
+            if (gdOrders.SelectedIndex >= 0)
+            {
+                if (gdOrders.SelectedIndex >= gdOrders.Items.Count)
+                {
+                    OrderContext db = new OrderContext();
+                    db.DisapproveOrder(gdOrders.SelectedIndex);
+                    db.SaveChanges();
+                    db.Dispose();
+                    RefreshPool();
+                }
+                else MessageBox.Show("Order above possible range is selected");
+            }
+            else MessageBox.Show("Order not selected");
         }
         private void btnMarkDone_Click(object sender, RoutedEventArgs e)
         {
-            OrderContext db = new OrderContext();
-            db.MarkDone(gdOrders.SelectedIndex);
-            db.SaveChanges();
-            db.Dispose();
-            RefreshPool();
+            if (gdOrders.SelectedIndex >= 0)
+            {
+                if (gdOrders.SelectedIndex >= gdOrders.Items.Count)
+                {
+                    OrderContext db = new OrderContext();
+                    db.MarkDone(gdOrders.SelectedIndex);
+                    db.SaveChanges();
+                    db.Dispose();
+                    RefreshPool();
+                }
+                else MessageBox.Show("Order above possible range is selected");
+            }
+            else MessageBox.Show("Order not selected");
         }
         private void btnGoToProfile_Click(object sender, RoutedEventArgs e)
         {

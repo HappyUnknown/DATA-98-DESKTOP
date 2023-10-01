@@ -76,6 +76,10 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                         orderDb.Orders.Add(order);
                         orderDb.SaveChanges();
                         orderDb.Dispose();
+
+                        ProfileWindow window = new ProfileWindow(user);
+                        Close();
+                        window.ShowDialog();
                     }
                     else
                     {

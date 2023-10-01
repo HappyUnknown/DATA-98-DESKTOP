@@ -81,7 +81,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                             };
                             db.Users.Add(user);
                             db.SaveChanges();
-                            MessageBox.Show(db.Users.ToList()[db.Users.Count() - 1].PassMD5);
+                            MessageBox.Show("Success");
                             db.Dispose();
 
                         }

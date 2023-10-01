@@ -100,5 +100,44 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             Close();
             overviewWindow.ShowDialog();
         }
+
+        private void btnGoToPool_Click(object sender, RoutedEventArgs e)
+        {
+            PoolWindow pool = new PoolWindow(user);
+            Close();
+            pool.ShowDialog();
+        }
+        void RefreshPool()
+        {
+            var db = new OrderContext();
+            try
+            {
+                if (user.RightsType == AccessLevel.Customer)
+                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.CustomerId == x.CustomerId);
+                else
+                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.MasterId == x.MasterId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnRejectOrder_Click(object sender, RoutedEventArgs e)
+        {
+            if (gdMasterOrders.SelectedIndex >= 0)
+            {
+                if (gdMasterOrders.SelectedIndex < gdMasterOrders.Items.Count)
+                {
+                    OrderContext db = new OrderContext();
+                    db.QuestionOrder(gdMasterOrders.SelectedIndex);
+                    db.SaveChanges();
+                    db.Dispose();
+                    RefreshPool();
+                }
+                else MessageBox.Show("Order above possible range is selected");
+            }
+            else MessageBox.Show("Order not selected");
+        }
     }
 }

@@ -105,6 +105,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FormGUI\Admins\SneakRegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FormGUI\Admins\UsersOverviewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FormGUI\Users\NewIssueWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormGUI\Users\PoolWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,6 +153,9 @@
     <Compile Include="FormGUI\Admins\OrdersOverviewWindow.xaml.cs">
       <DependentUpon>OrdersOverviewWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FormGUI\Admins\SneakRegisterWindow.xaml.cs">
+      <DependentUpon>SneakRegisterWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormGUI\Admins\UsersOverviewWindow.xaml.cs">
       <DependentUpon>UsersOverviewWindow.xaml</DependentUpon>
     </Compile>
@@ -154,12 +165,24 @@
     <Compile Include="FormGUI\Users\NewIssueWindow.xaml.cs">
       <DependentUpon>NewIssueWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FormGUI\Users\PoolWindow.xaml.cs">
+      <DependentUpon>PoolWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormGUI\Users\ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="FormGUI\Users\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202310011159104_InitialCreate.cs" />
+    <Compile Include="Migrations\202310011159104_InitialCreate.designer.cs">
+      <DependentUpon>202310011159104_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202310011319379_UserBanned.cs" />
+    <Compile Include="Migrations\202310011319379_UserBanned.designer.cs">
+      <DependentUpon>202310011319379_UserBanned.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PageGUI\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
@@ -179,6 +202,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202310011159104_InitialCreate.resx">
+      <DependentUpon>202310011159104_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202310011319379_UserBanned.resx">
+      <DependentUpon>202310011319379_UserBanned.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

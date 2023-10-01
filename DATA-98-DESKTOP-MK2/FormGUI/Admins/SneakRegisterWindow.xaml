@@ -1,0 +1,16 @@
+﻿<Window x:Class="DATA_98_DESKTOP_MK2.FormGUI.Admins.SneakRegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DATA_98_DESKTOP_MK2.FormGUI.Admins"
+        mc:Ignorable="d"
+        Title="SneakRegisterWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btnSneakRegister" Click="btnSneakRegister_Click">
+            <Viewbox>
+                <Label Content="Sneak"/>
+            </Viewbox>
+        </Button>
+    </Grid>
+</Window>

@@ -26,92 +26,115 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
         public ProfileWindow(User user)
         {
             InitializeComponent();
+            try
+            {
 
-            this.user = user;
+                this.user = user;
 
-            var db = new OrderContext();
-            if (user.RightsType == AccessLevel.Customer)
-                gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.CustomerId == user.ID);
-            else
-                gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.MasterId == user.ID);
+                var db = new OrderContext();
+                if (user.RightsType == AccessLevel.Customer)
+                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.CustomerId == user.ID);
+                else
+                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.MasterId == user.ID);
 
-            db.Dispose();
+                db.Dispose();
+            }
+            catch (Exception ex) { MessageBox.Show($"E-44 => {ex.Message}"); }
         }
 
         private void btnNewIssue_Click(object sender, RoutedEventArgs e)
         {
-            NewIssueWindow issueWindow = new NewIssueWindow(user);
-            Close();
-            issueWindow.ShowDialog();
+            try
+            {
+                NewIssueWindow issueWindow = new NewIssueWindow(user);
+                Close();
+                issueWindow.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show($"E-45 => {ex.Message}"); }
         }
 
         private void btnGoToOrders_Click(object sender, RoutedEventArgs e)
         {
-            OrdersOverviewWindow overview = new OrdersOverviewWindow(user);
-            Close();
-            overview.ShowDialog();
+            try
+            {
+                OrdersOverviewWindow overview = new OrdersOverviewWindow(user);
+                Close();
+                overview.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show($"E-46 => {ex.Message}"); }
         }
 
         private void btnGoToAddOrder_Click(object sender, RoutedEventArgs e)
         {
-            NewOrderWindow orderWindow = new NewOrderWindow(user); // Preliminary to Close() in order to show further
             try
             {
+                NewOrderWindow orderWindow = new NewOrderWindow(user); // Preliminary to Close() in order to show further
                 Close();
                 orderWindow.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"=> {ex.Message}");
+                MessageBox.Show($"E-47 => {ex.Message}");
             }
         }
 
         private void btnGoToRegister_Click(object sender, RoutedEventArgs e)
         {
-            RegisterWindow registerWindow = new RegisterWindow(user); // Preliminary to Close() in order to show further
             try
             {
+                RegisterWindow registerWindow = new RegisterWindow(user); // Preliminary to Close() in order to show further
                 Close();
                 registerWindow.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"btnGoToRegister_Click=> {ex.Message}");
+                MessageBox.Show($"E-48 => {ex.Message}");
             }
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow signInWindow = new LoginWindow(); // Preliminary to Close() in order to show further
             try
             {
+                LoginWindow signInWindow = new LoginWindow(); // Preliminary to Close() in order to show further
                 Close();
                 signInWindow.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"btnLogout_Click=> {ex.Message}");
+                MessageBox.Show($"E-49 => {ex.Message}");
             }
         }
 
         private void btnGoToAdmins_Click(object sender, RoutedEventArgs e)
         {
-            UsersOverviewWindow overviewWindow = new UsersOverviewWindow(user);
-            Close();
-            overviewWindow.ShowDialog();
+            try
+            {
+                UsersOverviewWindow overviewWindow = new UsersOverviewWindow(user);
+                Close();
+                overviewWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"E-50 => {ex.Message}");
+            }
         }
 
         private void btnGoToPool_Click(object sender, RoutedEventArgs e)
         {
-            PoolWindow pool = new PoolWindow(user);
-            Close();
-            pool.ShowDialog();
+            try
+            {
+                PoolWindow pool = new PoolWindow(user);
+                Close();
+                pool.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show($"E-51 => {ex.Message}"); }
         }
         void RefreshPool()
         {
-            var db = new OrderContext();
             try
             {
+                var db = new OrderContext();
                 if (user.RightsType == AccessLevel.Customer)
                     gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.CustomerId == x.CustomerId);
                 else
@@ -119,7 +142,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"E-52 => {ex.Message}");
             }
         }
 
@@ -135,9 +158,9 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                     db.Dispose();
                     RefreshPool();
                 }
-                else MessageBox.Show("Order above possible range is selected");
+                else MessageBox.Show("E-54 => Master order is out of range");
             }
-            else MessageBox.Show("Order not selected");
+            else MessageBox.Show("E-53 => Master's order is not selected");
         }
     }
 }

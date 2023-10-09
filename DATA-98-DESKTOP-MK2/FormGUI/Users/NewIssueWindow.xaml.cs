@@ -31,22 +31,31 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
 
         private void btnRedeemIssue_Click(object sender, RoutedEventArgs e)
         {
-            OrderContext db = new OrderContext();
-            Order order = new Order() { CustomerId = user.ID, OrderDesc = tbOrderDesc.Text };
-            db.Orders.Add(order);
-            db.SaveChanges();
-            db.Dispose();
+            try
+            {
+                OrderContext db = new OrderContext();
+                Order order = new Order() { CustomerId = user.ID, OrderDesc = tbOrderDesc.Text };
+                db.Orders.Add(order);
+                db.SaveChanges();
+                db.Dispose();
 
-            ProfileWindow profile = new ProfileWindow(user);
-            Close();
-            profile.ShowDialog();
-        }
+                ProfileWindow profile = new ProfileWindow(user);
+                Close();
+                profile.ShowDialog();
+            } catch (Exception ex) { MessageBox.Show($"E-37 => {ex.Message}"); } }
 
         private void btnCancelRedeem_Click(object sender, RoutedEventArgs e)
         {
-            ProfileWindow profile = new ProfileWindow(user);
-            Close();
-            profile.ShowDialog();
+            try
+            {
+                ProfileWindow profile = new ProfileWindow(user);
+                Close();
+                profile.ShowDialog();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"E-38 => {ex.Message}");
+            }
         }
     }
 }

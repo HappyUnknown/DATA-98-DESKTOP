@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:DATA_98_DESKTOP_MK2"
              StartupUri="FormGUI/Users/LoginWindow.xaml">
+    <!--FormGUI/Admins/SneakRegisterWindow.xaml-->
     <Application.Resources>
          
     </Application.Resources>

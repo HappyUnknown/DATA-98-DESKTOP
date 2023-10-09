@@ -28,10 +28,14 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
 
         private void btnSneakRegister_Click(object sender, RoutedEventArgs e)
         {
-            User admin = new User() { RightsType = AccessLevel.Admin };
-            RegisterWindow window = new RegisterWindow(admin);
-            Close();
-            window.ShowDialog();
+            try
+            {
+                User admin = new User() { RightsType = AccessLevel.Admin };
+                RegisterWindow window = new RegisterWindow(admin);
+                Close();
+                window.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show($"E-29 => {ex.Message}"); }
         }
     }
 }

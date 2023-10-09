@@ -26,9 +26,15 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
         public OrdersOverviewWindow(User user)
         {
             InitializeComponent();
-
-            RefreshPool();
-            this.user = user;
+            try
+            {
+                RefreshPool();
+                this.user = user;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"E-12 => {ex.Message}");
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -45,19 +51,19 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                     editOrder.ShowDialog();
                 }
             }
-            else MessageBox.Show("No order selected!");
+            else MessageBox.Show("E-13 => No order selected!");
         }
 
         void RefreshPool()
         {
-            var db = new OrderContext();
             try
             {
+                var db = new OrderContext();
                 gdOrders.ItemsSource = db.Orders.ToList();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"E-14 => {ex.Message}");
             }
         }
 
@@ -73,9 +79,9 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                     db.Dispose();
                     RefreshPool();
                 }
-                else MessageBox.Show("Order above possible range is selected");
+                else MessageBox.Show($"E-16 => Order above possible range is selected");
             }
-            else MessageBox.Show("Order not selected");
+            else MessageBox.Show("E-15 => Order not selected");
         }
 
         private void btnIdleOrder_Click(object sender, RoutedEventArgs e)
@@ -90,9 +96,9 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                     db.Dispose();
                     RefreshPool();
                 }
-                else MessageBox.Show("Order above possible range is selected");
+                else MessageBox.Show("E-18 => Order above possible range is selected");
             }
-            else MessageBox.Show("Order not selected");
+            else MessageBox.Show("E-17 => Order not selected");
         }
 
         private void btnAcceptOrder_Click(object sender, RoutedEventArgs e)
@@ -107,9 +113,9 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                     db.Dispose();
                     RefreshPool();
                 }
-                else MessageBox.Show("Order above possible range is selected");
+                else MessageBox.Show("E-20 => Order above possible range is selected");
             }
-            else MessageBox.Show("Order not selected");
+            else MessageBox.Show("E-19 => Order not selected");
         }
 
         private void btnApproveOrder_Click(object sender, RoutedEventArgs e)
@@ -124,9 +130,9 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                     db.Dispose();
                     RefreshPool();
                 }
-                else MessageBox.Show("Order above possible range is selected");
+                else MessageBox.Show("E-23 => Order above possible range is selected");
             }
-            else MessageBox.Show("Order not selected");
+            else MessageBox.Show("E-22 => Order not selected");
         }
 
         private void btnDisapproveOrder_Click(object sender, RoutedEventArgs e)
@@ -141,9 +147,9 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                     db.Dispose();
                     RefreshPool();
                 }
-                else MessageBox.Show("Order above possible range is selected");
+                else MessageBox.Show("E-25 => Order above possible range is selected");
             }
-            else MessageBox.Show("Order not selected");
+            else MessageBox.Show("E-24");
         }
         private void btnMarkDone_Click(object sender, RoutedEventArgs e)
         {
@@ -157,15 +163,19 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                     db.Dispose();
                     RefreshPool();
                 }
-                else MessageBox.Show("Order above possible range is selected");
+                else MessageBox.Show("E-27 => Order above possible range is selected");
             }
-            else MessageBox.Show("Order not selected");
+            else MessageBox.Show("E-26 => Order not selected");
         }
         private void btnGoToProfile_Click(object sender, RoutedEventArgs e)
         {
-            ProfileWindow window = new ProfileWindow(user);
-            Close();
-            window.ShowDialog();
+            try
+            {
+                ProfileWindow window = new ProfileWindow(user);
+                Close();
+                window.ShowDialog();
+            }
+            catch (Exception ex){ MessageBox.Show($"E-28 => {ex.Message}"); }
         }
     }
 }

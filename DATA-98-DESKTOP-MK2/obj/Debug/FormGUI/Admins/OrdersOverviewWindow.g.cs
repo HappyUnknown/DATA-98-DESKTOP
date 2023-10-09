@@ -124,7 +124,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DATA-98-DESKTOP-MK2;component/formgui/admins/ordersoverviewwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DATA-98;component/formgui/admins/ordersoverviewwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\FormGUI\Admins\OrdersOverviewWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

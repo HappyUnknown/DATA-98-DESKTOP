@@ -164,7 +164,7 @@ namespace DATA_98_DESKTOP_MK2.PageGUI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DATA-98-DESKTOP-MK2;component/pagegui/orderpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DATA-98;component/pagegui/orderpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\PageGUI\OrderPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

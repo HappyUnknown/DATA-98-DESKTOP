@@ -76,7 +76,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DATA-98-DESKTOP-MK2;component/formgui/users/poolwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DATA-98;component/formgui/users/poolwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\FormGUI\Users\PoolWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

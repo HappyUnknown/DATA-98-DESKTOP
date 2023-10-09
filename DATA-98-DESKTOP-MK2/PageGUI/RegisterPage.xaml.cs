@@ -35,33 +35,37 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
             {
                 if (db.Users.Count() > 0)
                     lblId.Content = db.Users.Max(x => x.ID) + 1;
-                else lblId.Content = "-";
+                else
+                    lblId.Content = "-";
             }
-            catch (Exception ex) { MessageBox.Show($"RegisterPage construction => {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"E-14 => RegisterPage construction. {ex.Message}"); }
             finally { db.Dispose(); }
-
-            tbEmail.Text = "john.doe@mail.com";
-            tbFirstName.Text = "john";
-            tbLastName.Text = "doe";
-            tbMiddleName.Text = "johnson";
-            tbNickname.Text = "john.doe";
-            tbPassword.Text = "12345";
-            tbPhone.Text = "+380380380380";
-            var rights = typeof(AccessLevel).GetEnumValues();
-            List<AccessLevel> rightList = new List<AccessLevel>();
-            for (int i = 0; i < rights.GetLength(0); i++)
-                rightList.Add((AccessLevel)rights.GetValue(i));
-            if (user == null)
+            try
             {
-                rightList.RemoveAt(rightList.Count - 1);
-                rightList.RemoveAt(rightList.Count - 1);
+                tbEmail.Text = "john.doe@mail.com";
+                tbFirstName.Text = "john";
+                tbLastName.Text = "doe";
+                tbMiddleName.Text = "johnson";
+                tbNickname.Text = "john.doe";
+                tbPassword.Text = "12345";
+                tbPhone.Text = "+380380380380";
+                var rights = typeof(AccessLevel).GetEnumValues();
+                List<AccessLevel> rightList = new List<AccessLevel>();
+                for (int i = 0; i < rights.GetLength(0); i++)
+                    rightList.Add((AccessLevel)rights.GetValue(i));
+                if (user == null)
+                {
+                    rightList.RemoveAt(rightList.Count - 1);
+                    rightList.RemoveAt(rightList.Count - 1);
+                }
+                else if (user.RightsType == AccessLevel.Customer || user.RightsType == AccessLevel.Master)
+                {
+                    rightList.RemoveAt(rightList.Count - 1);
+                    rightList.RemoveAt(rightList.Count - 1);
+                }
+                lbRightsType.ItemsSource = rightList;
             }
-            //else if(user.RightsType == AccessLevel.Customer || user.RightsType == AccessLevel.Master)
-            //{
-            //    rightList.RemoveAt(rightList.Count - 1);
-            //    rightList.RemoveAt(rightList.Count - 1);
-            //}
-            lbRightsType.ItemsSource = rightList;
+            catch (Exception ex) { MessageBox.Show($"E-15 => {ex.Message}"); }
         }
     }
 }

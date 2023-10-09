@@ -25,16 +25,23 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
         public PoolWindow(User user = null)
         {
             InitializeComponent();
-            
-            RefreshPool();
-            this.user = user;
+            try
+            {
+                RefreshPool();
+                this.user = user;
+            }
+            catch (Exception ex) { MessageBox.Show($"E-39 => {ex.Message}"); }
         }
 
         private void btnGoToProfile_Click(object sender, RoutedEventArgs e)
         {
-            ProfileWindow window = new ProfileWindow(user);
-            Close();
-            window.ShowDialog();
+            try
+            {
+                ProfileWindow window = new ProfileWindow(user);
+                Close();
+                window.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show($"E-40 => {ex.Message}"); }
         }
 
         void RefreshPool()
@@ -47,7 +54,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"E-41 => {ex.Message}");
             }
         }
 
@@ -63,9 +70,9 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                     db.Dispose();
                     RefreshPool();
                 }
-                else MessageBox.Show("Order above possible range is selected");
+                else MessageBox.Show("E-43 => Order above possible range is selected");
             }
-            else MessageBox.Show("Order not selected");
+            else MessageBox.Show("E-42 => Order not selected");
         }
     }
 }

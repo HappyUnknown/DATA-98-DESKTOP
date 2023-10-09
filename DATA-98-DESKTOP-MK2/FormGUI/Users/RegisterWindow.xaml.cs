@@ -34,14 +34,22 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                 lblNickname.Content = "No responsive user";
             else if (user != null)
                 lblNickname.Content = $"Responsive user: {user.Nickname} [{user.RightsType}]";
-
-            RegisterPage page = new RegisterPage(this.user);
-            fmRegisterPage.Navigate(page);
+            try
+            {
+                RegisterPage page = new RegisterPage(this.user);
+                fmRegisterPage.Navigate(page);
+            }
+            catch (Exception ex) { MessageBox.Show($"E-55 => {ex.Message}"); }
         }
 
         public bool InputInvalid()
         {
-            return ((fmRegisterPage.Content as RegisterPage).FindName("lbRightsType") as ListBox).SelectedItem == null;
+            try
+            {
+                return ((fmRegisterPage.Content as RegisterPage).FindName("lbRightsType") as ListBox).SelectedItem == null;
+            }
+            catch (Exception ex) { MessageBox.Show($"E-56 => {ex.Message}"); }
+            return true;
         }
         private void btnRegUser_Click(object sender, RoutedEventArgs e)
         {
@@ -61,9 +69,9 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                 {
 
                     if (db.NicknameRegistered(formNickname))
-                        MessageBox.Show("User already registered");
+                        MessageBox.Show("E-59 => User already registered");
                     else if (InputInvalid())
-                        MessageBox.Show("Fill the whole form");
+                        MessageBox.Show("E-60 => Fill the whole form");
                     else
                         try
                         {
@@ -85,18 +93,22 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                             db.Dispose();
 
                         }
-                        catch (Exception ex) { MessageBox.Show(ex.Message); }
+                        catch (Exception ex) { MessageBox.Show($"E-61 => {ex.Message}"); }
                 }
-                catch (Exception ex) { MessageBox.Show($"btnRegUser_Click-2 =>{ex.Message}"); }
+                catch (Exception ex) { MessageBox.Show($"E-58 => {ex.Message}"); }
             }
-            catch (Exception ex) { MessageBox.Show($"btnRegUser_Click-1 => {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"E-57 => {ex.Message}"); }
 
         }
         private void btnCancelReg_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow loginWindow = new LoginWindow();
-            Close();
-            loginWindow.ShowDialog();
+            try
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                Close();
+                loginWindow.ShowDialog();
+            }
+            catch(Exception ex) { MessageBox.Show($"E-60 => {ex.Message}"); }
         }
     }
 }

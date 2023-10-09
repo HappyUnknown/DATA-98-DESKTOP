@@ -28,10 +28,14 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
         public NewOrderWindow(User user)
         {
             InitializeComponent();
+            try
+            {
 
-            this.user = user;
-            OrderPage page = new OrderPage();
-            fmOrderPage.Navigate(page);
+                this.user = user;
+                OrderPage page = new OrderPage();
+                fmOrderPage.Navigate(page);
+            }
+            catch (Exception ex) { MessageBox.Show($"E-7 => {ex.Message}"); }
         }
 
         private void btnAddOrder_Click(object sender, RoutedEventArgs e)
@@ -83,12 +87,12 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                     }
                     else
                     {
-                        MessageBox.Show("userId, customerId or fixPrice weren't fulfilled!");
+                        MessageBox.Show("E-10 => userId, customerId or fixPrice weren't fulfilled!");
                     }
                 }
-                catch (Exception ex) { MessageBox.Show($"btnAddOrder_Click-2 =>{ex.Message}"); }
+                catch (Exception ex) { MessageBox.Show($"E-9 =>{ex.Message}"); }
             }
-            catch (Exception ex) { MessageBox.Show($"btnAddOrder_Click-1 => {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"E-8 => {ex.Message}"); }
             //ProfileWindow window = new ProfileWindow(user);
             //Close();
             //window.ShowDialog();
@@ -96,9 +100,13 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
 
         private void btnCancelAddOrder_Click(object sender, RoutedEventArgs e)
         {
-            ProfileWindow window = new ProfileWindow(user);
-            Close();
-            window.ShowDialog();
+            try
+            {
+                ProfileWindow window = new ProfileWindow(user);
+                Close();
+                window.ShowDialog();
+            }
+            catch(Exception ex) { MessageBox.Show($"E-11 => 7{ex.Message}"); }
         }
     }
 }

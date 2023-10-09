@@ -46,29 +46,34 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                             Close();
                             profileWindow.ShowDialog();
                         }
-                        else MessageBox.Show("User was banned");
+                        else MessageBox.Show("E-32 => User banned");
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show($"E-33 => {ex.Message}");
                     }
-                else MessageBox.Show("Credentials invalid");
+                else MessageBox.Show("E-34 => Credentials invalid.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Cannot login: {ex.Message}");
+                MessageBox.Show($"E-35 => Cannot login. {ex.Message}");
             }
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            Close();
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            RegisterWindow profileWindow = new RegisterWindow(user: null);
-            Close();
-            profileWindow.ShowDialog();
+            try
+            {
+                RegisterWindow profileWindow = new RegisterWindow(user: null);
+                Close();
+                profileWindow.ShowDialog();
+            }
+            catch(Exception ex) { MessageBox.Show($"E-36 => {ex.Message}"); }
         }
     }
 }

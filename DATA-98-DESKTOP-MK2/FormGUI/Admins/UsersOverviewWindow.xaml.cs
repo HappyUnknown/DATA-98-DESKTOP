@@ -26,18 +26,26 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
         public UsersOverviewWindow(User user)
         {
             InitializeComponent();
+            try
+            {
 
-            this.user = user;
-            var db = new UserContext();
-            gdUsers.ItemsSource = db.Users.ToList();
-            db.Dispose();
+                this.user = user;
+                var db = new UserContext();
+                gdUsers.ItemsSource = db.Users.ToList();
+                db.Dispose();
+            }
+            catch (Exception ex) { MessageBox.Show($"E-30 => {ex.Message}"); }
         }
 
         private void btnGoToProfile_Click(object sender, RoutedEventArgs e)
         {
-            ProfileWindow profile = new ProfileWindow(user);
-            Close();
-            profile.ShowDialog();
+            try
+            {
+                ProfileWindow profile = new ProfileWindow(user);
+                Close();
+                profile.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show($"E-31 => {ex.Message}"); }
         }
     }
 }

@@ -29,8 +29,8 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
             InitializeComponent();
 
             UserContext userDB = new UserContext();
-            lbMasterID.ItemsSource = userDB.Users.Select(x => x.Nickname).ToList();
-            lbCustomerID.ItemsSource = userDB.Users.Select(x => x.Nickname).ToList();
+            lbMasterID.ItemsSource = userDB.Users.Where(x => x.RightsType != AccessLevel.Customer).Select(x => x.Nickname).ToList();
+            lbCustomerID.ItemsSource = userDB.Users.Where(x => x.RightsType == AccessLevel.Customer).Select(x => x.Nickname).ToList();
 
             lbApprovalPhase.ItemsSource = typeof(AgreementState).GetEnumValues();
 

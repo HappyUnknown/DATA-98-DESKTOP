@@ -65,12 +65,12 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                 if (gdOrderPool.SelectedIndex < gdOrderPool.Items.Count)
                 {
                     OrderContext db = new OrderContext();
-                    List<Order> orders = db.Orders.ToList();
-                    Order orderFound = orders.Where(x => x.Id == orders[gdOrderPool.SelectedIndex].Id).FirstOrDefault();
-                    //db.SetOrderMaster(gdOrderPool.SelectedIndex, user.ID);
-                    orders[gdOrderPool.SelectedIndex].MasterId = user.ID;
-                    MessageBox.Show(orders[gdOrderPool.SelectedIndex].MasterId.ToString());
-                    db.Entry(orderFound).State = System.Data.Entity.EntityState.Modified;
+                    List<Order> allOrders = db.Orders.ToList();
+                    Order poolOrder = gdOrderPool.SelectedItem as Order;
+                    Order globalOrder = allOrders.Where(x => x.Id == poolOrder.Id).FirstOrDefault();
+                    int globalIndex = allOrders.IndexOf(globalOrder);
+                    allOrders[globalIndex].MasterId = user.ID;
+                    db.SetOrderMaster(gdOrderPool.SelectedIndex, user.ID);
                     db.SaveChanges();
                     db.Dispose();
                     RefreshPool();

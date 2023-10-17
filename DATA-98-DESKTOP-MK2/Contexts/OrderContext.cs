@@ -41,6 +41,7 @@ namespace DATA_98_DESKTOP_MK2.Contexts
             var orders = Orders.ToList();
             orders[orderIndex].ApprovalPhase = AgreementState.Confirmation;
             orders[orderIndex].MasterId = 0;
+            //No entry required
         }
         public void IdlizeOrder(int orderIndex)
         {

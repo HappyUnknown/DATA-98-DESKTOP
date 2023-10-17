@@ -31,13 +31,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
 
                 this.user = user;
 
-                var db = new OrderContext();
-                if (user.RightsType == AccessLevel.Customer)
-                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.CustomerId == user.ID);
-                else
-                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.MasterId == user.ID);
-
-                db.Dispose();
+                RefreshPool();
             }
             catch (Exception ex) { MessageBox.Show($"E-44 => {ex.Message}"); }
         }
@@ -136,9 +130,11 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             {
                 var db = new OrderContext();
                 if (user.RightsType == AccessLevel.Customer)
-                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.CustomerId == x.CustomerId);
+                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.CustomerId == user.ID);
                 else
-                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.MasterId == x.MasterId);
+                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.MasterId == user.ID);
+
+                db.Dispose();
             }
             catch (Exception ex)
             {

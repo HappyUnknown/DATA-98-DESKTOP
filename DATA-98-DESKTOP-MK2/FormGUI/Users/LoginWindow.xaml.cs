@@ -25,7 +25,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
         {
             InitializeComponent();
 
-            string nickname = "don.joe";
+            string nickname = "john.doe";
             string password = "12345";
             tbNickname.Text = nickname;
             tbPassword.Text = password;

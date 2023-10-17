@@ -49,7 +49,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             var db = new OrderContext();
             try
             {
-                gdOrderPool.ItemsSource = db.Orders.ToList();
+                gdOrderPool.ItemsSource = db.Orders.Where(x => x.MasterId == Constants.AppConstants.FREE_TASK_MASTER_ID).ToList();
                 db.Dispose();
             }
             catch (Exception ex)
@@ -65,7 +65,12 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                 if (gdOrderPool.SelectedIndex < gdOrderPool.Items.Count)
                 {
                     OrderContext db = new OrderContext();
-                    db.SetOrderMaster(gdOrderPool.SelectedIndex, user.ID);
+                    List<Order> orders = db.Orders.ToList();
+                    Order orderFound = orders.Where(x => x.Id == orders[gdOrderPool.SelectedIndex].Id).FirstOrDefault();
+                    //db.SetOrderMaster(gdOrderPool.SelectedIndex, user.ID);
+                    orders[gdOrderPool.SelectedIndex].MasterId = user.ID;
+                    MessageBox.Show(orders[gdOrderPool.SelectedIndex].MasterId.ToString());
+                    db.Entry(orderFound).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                     db.Dispose();
                     RefreshPool();

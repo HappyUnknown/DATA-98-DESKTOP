@@ -130,9 +130,9 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             {
                 var db = new OrderContext();
                 if (user.RightsType == AccessLevel.Customer)
-                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.CustomerId == user.ID);
+                    gdProfileOrders.ItemsSource = db.Orders.ToList().Where(x => x.CustomerId == user.ID);
                 else
-                    gdMasterOrders.ItemsSource = db.Orders.ToList().Where(x => x.MasterId == user.ID);
+                    gdProfileOrders.ItemsSource = db.Orders.ToList().Where(x => x.MasterId == user.ID);
 
                 db.Dispose();
             }
@@ -144,12 +144,16 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
 
         private void btnRejectOrder_Click(object sender, RoutedEventArgs e)
         {
-            if (gdMasterOrders.SelectedIndex >= 0)
+            if (gdProfileOrders.SelectedIndex >= 0)
             {
-                if (gdMasterOrders.SelectedIndex < gdMasterOrders.Items.Count)
+                if (gdProfileOrders.SelectedIndex < gdProfileOrders.Items.Count)
                 {
                     OrderContext db = new OrderContext();
-                    db.QuestionOrder(gdMasterOrders.SelectedIndex);
+                    Order profileOrder = gdProfileOrders.Items[gdProfileOrders.SelectedIndex] as Order;
+                    Order globalOrder = db.Orders.ToList().Where(x => x.Id == profileOrder.Id).FirstOrDefault();
+                    int globalIndex = db.Orders.ToList().IndexOf(globalOrder);
+                    MessageBox.Show($"GLOBAL: {globalIndex}");
+                    db.QuestionOrder(globalIndex);
                     db.SaveChanges();
                     db.Dispose();
                     RefreshPool();

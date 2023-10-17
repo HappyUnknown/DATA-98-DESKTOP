@@ -69,6 +69,6 @@
                 <Label Content="Reject" Margin="5 5 5 5"/>
             </Viewbox>
         </Button>
-        <DataGrid x:Name="gdMasterOrders" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
+        <DataGrid x:Name="gdProfileOrders" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
     </Grid>
 </Window>

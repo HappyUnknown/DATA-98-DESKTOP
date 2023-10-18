@@ -22,6 +22,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Viewbox Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">
             <Label Content="Id"/>
@@ -56,8 +57,12 @@
         </Viewbox>
         <TextBox Grid.Column="1" Grid.Row="7" x:Name="tbNickname"/>
         <Viewbox Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right">
+            <Label Content="MarignPercent"/>
+        </Viewbox>
+        <TextBox Grid.Column="1" Grid.Row="8" x:Name="tbMarginPercent"/>
+        <Viewbox Grid.Column="0" Grid.Row="9" HorizontalAlignment="Right">
             <Label Content="RightsType"/>
         </Viewbox>
-        <ListBox Grid.Column="1" Grid.Row="8" x:Name="lbRightsType"/>
+        <ListBox Grid.Column="1" Grid.Row="9" x:Name="lbRightsType" SelectionChanged="lbRightsType_SelectionChanged"/>
     </Grid>
 </Page>

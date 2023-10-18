@@ -1,4 +1,5 @@
-﻿using DATA_98_DESKTOP_MK2.Contexts;
+﻿using DATA_98_DESKTOP_MK2.Constants;
+using DATA_98_DESKTOP_MK2.Contexts;
 using DATA_98_DESKTOP_MK2.Entities;
 using DATA_98_DESKTOP_MK2.Extensions;
 using System;
@@ -64,8 +65,22 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
                     rightList.RemoveAt(rightList.Count - 1);
                 }
                 lbRightsType.ItemsSource = rightList;
+
+                tbMarginPercent.Text = AppConstants.INIT_MARGIN.ToString();
+                tbMarginPercent.IsEnabled = false;
             }
             catch (Exception ex) { MessageBox.Show($"E-15 => {ex.Message}"); }
+        }
+
+        private void lbRightsType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender == null)
+                tbMarginPercent.IsEnabled = false;
+            else if ((AccessLevel)lbRightsType.SelectedValue == AccessLevel.Customer)
+                tbMarginPercent.IsEnabled = false;
+            else
+                tbMarginPercent.IsEnabled = true;
+            tbMarginPercent.Text = AppConstants.INIT_MARGIN.ToString();
         }
     }
 }

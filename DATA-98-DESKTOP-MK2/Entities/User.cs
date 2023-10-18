@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DATA_98_DESKTOP_MK2.Constants;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace DATA_98_DESKTOP_MK2.Entities
         public string FirstName { get; set; } = "FIRSTNAME_NON_ESTABLISHED";
         public string LastName { get; set; } = "LASTNAME_NON_ESTABLISHED";
         public string MiddleName { get; set; } = "MIDDLENAME_NON_ESTABLISHED";
+        public double MarginPercent { get; set; } = AppConstants.INIT_MARGIN;
         public AccessLevel RightsType { get; set; } = AccessLevel.Customer;
         public bool Banned { get; set; } = false;
     }

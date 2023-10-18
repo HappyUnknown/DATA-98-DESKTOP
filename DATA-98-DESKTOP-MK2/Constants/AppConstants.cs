@@ -10,5 +10,6 @@ namespace DATA_98_DESKTOP_MK2.Constants
     {
         public const char URL_SPLITTER = ';';
         public const int FREE_TASK_MASTER_ID = 0;
+        public const double INIT_MARGIN = 0;
     }
 }

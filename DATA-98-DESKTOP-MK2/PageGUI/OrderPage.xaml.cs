@@ -35,7 +35,6 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
 
             lbApprovalPhase.ItemsSource = typeof(AgreementState).GetEnumValues();
 
-
             try
             {
                 if (order != null)
@@ -71,6 +70,12 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
             var ofd = new System.Windows.Forms.OpenFileDialog();
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 lbMediaArray.Items.Add(ofd.FileName);
+        }
+
+        private void lbMediaArray_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lbMediaArray.SelectedItem != null)
+                imMediaPreview.Source = new BitmapImage(new Uri($"{lbMediaArray.SelectedValue}", UriKind.RelativeOrAbsolute));
         }
     }
 }

@@ -10,8 +10,9 @@
 
     <Grid x:Name="gdOrderBase" Background="Azure">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
             <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -39,61 +40,58 @@
         <Viewbox Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="OrderDesc"/>
         </Viewbox>
-        <TextBox x:Name="tbOrderDesc" Grid.Row="2" Grid.Column="2"/>
+        <TextBox x:Name="tbOrderDesc" Grid.Row="2" Grid.Column="1"/>
         <Viewbox Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="FaultName"/>
         </Viewbox>
-        <TextBox x:Name="tbFaultName" Grid.Row="3" Grid.Column="2"/>
+        <TextBox x:Name="tbFaultName" Grid.Row="3" Grid.Column="1"/>
         <Viewbox Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="DiagDesc"/>
         </Viewbox>
-        <TextBox x:Name="tbDiagDesc" Grid.Row="4" Grid.Column="2"/>
+        <TextBox x:Name="tbDiagDesc" Grid.Row="4" Grid.Column="1"/>
         <Viewbox Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="FixPrice"/>
         </Viewbox>
-        <TextBox x:Name="tbFixPrice" Grid.Row="5" Grid.Column="2"/>
+        <TextBox x:Name="tbFixPrice" Grid.Row="5" Grid.Column="1"/>
         <Viewbox Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="Conclusion"/>
         </Viewbox>
-        <TextBox x:Name="tbConclusion" Grid.Row="6" Grid.Column="2"/>
+        <TextBox x:Name="tbConclusion" Grid.Row="6" Grid.Column="1"/>
         <Viewbox Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="ApprovalPhase"/>
         </Viewbox>
-        <ListBox x:Name="lbApprovalPhase" Grid.Row="7" Grid.Column="2"/>
+        <ListBox x:Name="lbApprovalPhase" Grid.Row="7" Grid.Column="1"/>
         <Viewbox Grid.Row="8" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="MediaArray"/>
         </Viewbox>
-        <Grid Grid.Row="8" Grid.ColumnSpan="2">
+        <Grid Grid.Column="1" Grid.Row="8">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10*"/>
-                    <ColumnDefinition Width="100*"/>
-                    <ColumnDefinition Width="10*"/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="btnRemoveMedia" Click="btnRemoveMedia_Click" Grid.Column="0">
-                    <Viewbox>
-                        <Label Content="-"/>
-                    </Viewbox>
-                </Button>
-                <ListView x:Name="lbMediaArray" Grid.Column="1"/>
-                <Button x:Name="btnAddMedia" Click="btnAddMedia_Click" Grid.Column="2">
-                    <Viewbox>
-                        <Label Content="+"/>
-                    </Viewbox>
-                </Button>
-            </Grid>
+            <Button x:Name="btnRemoveMedia" Click="btnRemoveMedia_Click" Grid.Column="0">
+                <Viewbox>
+                    <Label Content="-"/>
+                </Viewbox>
+            </Button>
+            <ListView x:Name="lbMediaArray" Grid.Column="1" SelectionChanged="lbMediaArray_SelectionChanged"/>
+            <Button x:Name="btnAddMedia" Click="btnAddMedia_Click" Grid.Column="2">
+                <Viewbox>
+                    <Label Content="+"/>
+                </Viewbox>
+            </Button>
         </Grid>
         <Viewbox Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="Master's nickname"/>
         </Viewbox>
-        <ListBox x:Name="lbMasterID" Grid.Row="9" Grid.Column="2"/>
+        <ListBox x:Name="lbMasterID" Grid.Row="9" Grid.Column="1"/>
         <Viewbox Grid.Row="10" Grid.Column="0" HorizontalAlignment="Right">
             <Label Content="CustomerID"/>
         </Viewbox>
-        <ListBox x:Name="lbCustomerID" Grid.Row="10" Grid.Column="2"/>
+        <ListBox x:Name="lbCustomerID" Grid.Row="10" Grid.Column="1"/>
+        <Grid Grid.Row="4" Grid.Column="2" Grid.RowSpan="3" Background="Black">
+            <Image x:Name="imMediaPreview"/>
+        </Grid>
     </Grid>
 </Page>

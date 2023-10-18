@@ -29,6 +29,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             {
                 RefreshPool();
                 this.user = user;
+                lblMarginInfo.Content = $"[%:{this.user.MarginPercent}]";
             }
             catch (Exception ex) { MessageBox.Show($"E-39 => {ex.Message}"); }
         }
@@ -78,6 +79,16 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                 else MessageBox.Show("E-43 => Order above possible range is selected");
             }
             else MessageBox.Show("E-42 => Order not selected");
+        }
+
+        private void gdOrderPool_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Order order = gdOrderPool.SelectedItem as Order;
+            if (order != null)
+            {
+                double margin = user.MarginPercent / 100;
+                lblMarginInfo.Content = $"[%:{margin} | ₴:{order.FixPrice * margin}]";
+            }
         }
     }
 }

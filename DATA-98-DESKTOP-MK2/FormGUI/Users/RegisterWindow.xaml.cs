@@ -108,7 +108,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                 Close();
                 loginWindow.ShowDialog();
             }
-            catch(Exception ex) { MessageBox.Show($"E-60 => {ex.Message}"); }
+            catch(Exception ex) { MessageBox.Show($"E-62 => {ex.Message}"); }
         }
     }
 }

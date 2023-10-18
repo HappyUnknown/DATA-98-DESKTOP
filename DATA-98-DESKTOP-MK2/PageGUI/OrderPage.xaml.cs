@@ -2,6 +2,7 @@
 using DATA_98_DESKTOP_MK2.Contexts;
 using DATA_98_DESKTOP_MK2.Entities;
 using DATA_98_DESKTOP_MK2.Enumerations;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
                     lblId.Content = order.Id;
                     tbItemName.Text = order.ItemName;
                     tbOrderDesc.Text = order.OrderDesc;
-                    var mediaPaths = order.MediaArray.Split(AppConstants.URL_SPLITTER);
+                    var mediaPaths = JsonConvert.DeserializeObject<string[]>(order.MediaArray);
                     for (int i = 0; i < mediaPaths.Length; i++)
                         lbMediaArray.Items.Add(mediaPaths[i]);
                     tbFixPrice.Text = order.FixPrice.ToString();

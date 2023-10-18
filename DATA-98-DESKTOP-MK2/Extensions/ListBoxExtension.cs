@@ -1,4 +1,5 @@
 ﻿using DATA_98_DESKTOP_MK2.Constants;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace DATA_98_DESKTOP_MK2.Extensions
         public static string ItemsAsSequence(this ListBox lb)
         {
             string[] array = ItemsAsArray(lb);
-            return string.Join(AppConstants.URL_SPLITTER.ToString(), array);
+            return JsonConvert.SerializeObject(array);
         }
     }
 }

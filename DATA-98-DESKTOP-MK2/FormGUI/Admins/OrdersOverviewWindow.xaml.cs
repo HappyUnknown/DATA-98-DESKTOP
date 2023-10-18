@@ -66,12 +66,15 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                 MessageBox.Show($"E-14 => {ex.Message}");
             }
         }
-
+        bool IndexBelowCount()
+        {
+            return gdOrders.SelectedIndex < gdOrders.Items.Count;
+        }
         private void btnQuestionOrder_Click(object sender, RoutedEventArgs e)
         {
             if (gdOrders.SelectedIndex >= 0)
             {
-                if (gdOrders.SelectedIndex < gdOrders.Items.Count)
+                if (IndexBelowCount())
                 {
                     OrderContext db = new OrderContext();
                     db.QuestionOrder(gdOrders.SelectedIndex);
@@ -88,7 +91,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
         {
             if (gdOrders.SelectedIndex >= 0)
             {
-                if (gdOrders.SelectedIndex >= gdOrders.Items.Count)
+                if (IndexBelowCount())
                 {
                     OrderContext db = new OrderContext();
                     db.IdlizeOrder(gdOrders.SelectedIndex);
@@ -105,7 +108,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
         {
             if (gdOrders.SelectedIndex >= 0)
             {
-                if (gdOrders.SelectedIndex >= gdOrders.Items.Count)
+                if (IndexBelowCount())
                 {
                     OrderContext db = new OrderContext();
                     db.SetOrderMaster(gdOrders.SelectedIndex, user.ID);
@@ -122,7 +125,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
         {
             if (gdOrders.SelectedIndex >= 0)
             {
-                if (gdOrders.SelectedIndex >= gdOrders.Items.Count)
+                if (IndexBelowCount())
                 {
                     OrderContext db = new OrderContext();
                     db.ApproveOrder(gdOrders.SelectedIndex);
@@ -139,7 +142,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
         {
             if (gdOrders.SelectedIndex >= 0)
             {
-                if (gdOrders.SelectedIndex >= gdOrders.Items.Count)
+                if (IndexBelowCount())
                 {
                     OrderContext db = new OrderContext();
                     db.DisapproveOrder(gdOrders.SelectedIndex);
@@ -155,7 +158,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
         {
             if (gdOrders.SelectedIndex >= 0)
             {
-                if (gdOrders.SelectedIndex >= gdOrders.Items.Count)
+                if (IndexBelowCount())
                 {
                     OrderContext db = new OrderContext();
                     db.MarkDone(gdOrders.SelectedIndex);
@@ -167,6 +170,25 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
             }
             else MessageBox.Show("E-26 => Order not selected");
         }
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            if (gdOrders.SelectedIndex >= 0)
+            {
+                if (IndexBelowCount())
+                {
+                    OrderContext db = new OrderContext();
+                    List<Order> orders = db.Orders.ToList();
+                    Order gridOrder = gdOrders.SelectedItem as Order;
+                    Order globalOrder = orders.Where(x => x.Id == gridOrder.Id).FirstOrDefault();
+                    db.Entry(globalOrder).State = System.Data.Entity.EntityState.Deleted;
+                    db.SaveChanges();
+                    db.Dispose();
+                    RefreshPool();
+                }
+                else MessageBox.Show("E-64 => Order above possible range is selected");
+            }
+            else MessageBox.Show("E-63 => Order not selected");
+        }
         private void btnGoToProfile_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -175,7 +197,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                 Close();
                 window.ShowDialog();
             }
-            catch (Exception ex){ MessageBox.Show($"E-28 => {ex.Message}"); }
+            catch (Exception ex) { MessageBox.Show($"E-28 => {ex.Message}"); }
         }
     }
 }

@@ -66,21 +66,23 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
                 }
                 lbRightsType.ItemsSource = rightList;
 
-                tbMarginPercent.Text = AppConstants.INIT_MARGIN.ToString();
-                tbMarginPercent.IsEnabled = false;
+                DisableMargin();
             }
             catch (Exception ex) { MessageBox.Show($"E-15 => {ex.Message}"); }
         }
-
+        void DisableMargin() 
+        {
+            tbMarginPercent.IsEnabled = false;
+            tbMarginPercent.Text = AppConstants.INIT_MARGIN.ToString();
+        }
         private void lbRightsType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (sender == null)
-                tbMarginPercent.IsEnabled = false;
+                DisableMargin();
             else if ((AccessLevel)lbRightsType.SelectedValue == AccessLevel.Customer)
-                tbMarginPercent.IsEnabled = false;
+                DisableMargin();
             else
                 tbMarginPercent.IsEnabled = true;
-            tbMarginPercent.Text = AppConstants.INIT_MARGIN.ToString();
         }
     }
 }

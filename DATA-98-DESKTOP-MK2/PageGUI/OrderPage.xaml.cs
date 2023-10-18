@@ -42,9 +42,13 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
                     lblId.Content = order.Id;
                     tbItemName.Text = order.ItemName;
                     tbOrderDesc.Text = order.OrderDesc;
-                    var mediaPaths = JsonConvert.DeserializeObject<string[]>(order.MediaArray);
-                    for (int i = 0; i < mediaPaths.Length; i++)
-                        lbMediaArray.Items.Add(mediaPaths[i]);
+                    try
+                    {
+                        var mediaPaths = JsonConvert.DeserializeObject<string[]>(order.MediaArray);
+                        for (int i = 0; i < mediaPaths.Length; i++)
+                            lbMediaArray.Items.Add(mediaPaths[i]);
+                    }
+                    catch (Exception ex) { MessageBox.Show($"E-75 => {ex.Message}"); }
                     tbFixPrice.Text = order.FixPrice.ToString();
                     tbDiagDesc.Text = order.DiagDesc;
                     tbConclusion.Text = order.Conclusion;

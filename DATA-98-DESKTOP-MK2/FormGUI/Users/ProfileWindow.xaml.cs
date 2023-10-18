@@ -44,6 +44,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             btnGoToPool.IsEnabled = false;
             btnGoToRefuses.IsEnabled = false;
             btnGoToAddOrder.IsEnabled = false;
+            btnGoToMargins.IsEnabled = false;
         }
         void UnlockResponsives()
         {
@@ -57,6 +58,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                 btnGoToOrders.IsEnabled = true;
                 btnGoToRefuses.IsEnabled = true;
                 btnGoToAddOrder.IsEnabled = true;
+                btnGoToMargins.IsEnabled = true;
             }
         }
 

@@ -21,7 +21,7 @@ namespace DATA_98_DESKTOP_MK2.Entities
         public double FixPrice { get; set; } = -1;
         public string Conclusion { get; set; } = "NO_CONCLUSION";
         public AgreementState ApprovalPhase { get; set; } = AgreementState.Confirmation;
-        public string MediaArray { get; set; } = "NO_MEDIA";
+        public string MediaArray { get; set; } = "[]";
         public int MasterId { get; set; } = 0;
         public int CustomerId { get; set; } = 0;
     }

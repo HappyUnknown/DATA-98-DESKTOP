@@ -30,10 +30,34 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             {
 
                 this.user = user;
-
+                lblNick.Content = $"{this.user.Nickname} [{this.user.RightsType}]";
+                LockAllRelative();
+                UnlockResponsives();
                 RefreshPool();
             }
             catch (Exception ex) { MessageBox.Show($"E-44 => {ex.Message}"); }
+        }
+        void LockAllRelative()
+        {
+            btnGoToAdmins.IsEnabled = false;
+            btnGoToOrders.IsEnabled = false;
+            btnGoToPool.IsEnabled = false;
+            btnGoToRefuses.IsEnabled = false;
+            btnGoToAddOrder.IsEnabled = false;
+        }
+        void UnlockResponsives()
+        {
+            if (user.RightsType > AccessLevel.Customer)
+            {
+                btnGoToPool.IsEnabled = true;
+            }
+            if (user.RightsType > AccessLevel.Master)
+            {
+                btnGoToAdmins.IsEnabled = true;
+                btnGoToOrders.IsEnabled = true;
+                btnGoToRefuses.IsEnabled = true;
+                btnGoToAddOrder.IsEnabled = true;
+            }
         }
 
         private void btnNewIssue_Click(object sender, RoutedEventArgs e)

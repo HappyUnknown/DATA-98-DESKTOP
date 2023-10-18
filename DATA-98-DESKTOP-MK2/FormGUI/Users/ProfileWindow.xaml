@@ -17,6 +17,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -64,11 +65,16 @@
                 <Label Content="Pool" Margin="5 5 5 5"/>
             </Viewbox>
         </Button>
-        <Button x:Name="btnRejectOrder" Click="btnRejectOrder_Click" Grid.Row="3" Grid.Column="7" Grid.RowSpan="2">
+        <Button x:Name="btnRejectOrder" Click="btnRejectOrder_Click" Grid.Row="3" Grid.Column="8" Grid.RowSpan="2">
             <Viewbox>
                 <Label Content="Reject" Margin="5 5 5 5"/>
             </Viewbox>
         </Button>
-        <DataGrid x:Name="gdProfileOrders" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
+        <Button x:Name="btnGoToRefuses" Grid.Row="2" Grid.Column="8" Click="btnGoToRefuses_Click">
+            <Viewbox>
+                <Label Content="Refuses" Margin="5 5 5 5"/>
+            </Viewbox>
+        </Button>
+        <DataGrid x:Name="gdProfileOrders" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="2"/>
     </Grid>
 </Window>

@@ -148,19 +148,30 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             {
                 if (gdProfileOrders.SelectedIndex < gdProfileOrders.Items.Count)
                 {
-                    OrderContext db = new OrderContext();
+                    OrderContext orderDB = new OrderContext();
+                    RefuseContext refuseDB = new RefuseContext();
                     Order profileOrder = gdProfileOrders.Items[gdProfileOrders.SelectedIndex] as Order;
-                    Order globalOrder = db.Orders.ToList().Where(x => x.Id == profileOrder.Id).FirstOrDefault();
-                    int globalIndex = db.Orders.ToList().IndexOf(globalOrder);
+                    Order globalOrder = orderDB.Orders.ToList().Where(x => x.Id == profileOrder.Id).FirstOrDefault();
+                    int globalIndex = orderDB.Orders.ToList().IndexOf(globalOrder);
                     MessageBox.Show($"GLOBAL: {globalIndex}");
-                    db.QuestionOrder(globalIndex);
-                    db.SaveChanges();
-                    db.Dispose();
+                    refuseDB.Refuses.Add(new Refuse() { UserId = user.ID, MomentRefused = DateTime.Now });
+                    refuseDB.SaveChanges();
+                    refuseDB.Dispose();
+                    orderDB.QuestionOrder(globalIndex);
+                    orderDB.SaveChanges();
+                    orderDB.Dispose();
                     RefreshPool();
                 }
                 else MessageBox.Show("E-54 => Master order is out of range");
             }
             else MessageBox.Show("E-53 => Master's order is not selected");
+        }
+
+        private void btnGoToRefuses_Click(object sender, RoutedEventArgs e)
+        {
+            RefuseOverviewWindow refuses = new RefuseOverviewWindow(user);
+            Close();
+            refuses.ShowDialog();
         }
     }
 }

@@ -87,7 +87,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             if (order != null)
             {
                 double margin = user.MarginPercent / 100;
-                lblMarginInfo.Content = $"[%:{margin} | ₴:{order.FixPrice * margin}]";
+                lblMarginInfo.Content = $"[%:{user.MarginPercent} | ₴:{order.FixPrice * margin}]";
             }
         }
     }

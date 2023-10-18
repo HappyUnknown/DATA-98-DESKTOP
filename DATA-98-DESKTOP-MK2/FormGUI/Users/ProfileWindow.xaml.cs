@@ -197,5 +197,12 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             Close();
             refuses.ShowDialog();
         }
+
+        private void btnGoToMargins_Click(object sender, RoutedEventArgs e)
+        {
+            EditMarginWindow marginWindow = new EditMarginWindow(user);
+            Close();
+            marginWindow.Show();
+        }
     }
 }

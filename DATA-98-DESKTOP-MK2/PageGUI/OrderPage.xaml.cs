@@ -56,26 +56,47 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"OrderBasePage(): {ex.Message}");
+                MessageBox.Show($"E-71 => {ex.Message}");
             }
         }
         private void btnRemoveMedia_Click(object sender, RoutedEventArgs e)
         {
-            if (lbMediaArray.SelectedItem != null)
-                lbMediaArray.Items.RemoveAt(lbMediaArray.SelectedIndex);
+            try
+            {
+                if (lbMediaArray.SelectedItem != null)
+                    lbMediaArray.Items.RemoveAt(lbMediaArray.SelectedIndex);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"E-72 => {ex.Message}");
+            }
         }
 
         private void btnAddMedia_Click(object sender, RoutedEventArgs e)
         {
-            var ofd = new System.Windows.Forms.OpenFileDialog();
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                lbMediaArray.Items.Add(ofd.FileName);
+            try
+            {
+                var ofd = new System.Windows.Forms.OpenFileDialog();
+                if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    lbMediaArray.Items.Add(ofd.FileName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"E-73 => {ex.Message}");
+            }
         }
 
         private void lbMediaArray_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (lbMediaArray.SelectedItem != null)
-                imMediaPreview.Source = new BitmapImage(new Uri($"{lbMediaArray.SelectedValue}", UriKind.RelativeOrAbsolute));
+            try
+            {
+                if (lbMediaArray.SelectedItem != null)
+                    imMediaPreview.Source = new BitmapImage(new Uri($"{lbMediaArray.SelectedValue}", UriKind.RelativeOrAbsolute));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"E-74 => {ex.Message}");
+            }
         }
     }
 }

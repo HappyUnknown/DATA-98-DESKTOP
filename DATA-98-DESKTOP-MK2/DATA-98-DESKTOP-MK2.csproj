@@ -101,6 +101,10 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enumerations\AgreementState.cs" />
     <Compile Include="Extensions\ListBoxExtension.cs" />
+    <Page Include="FormGUI\Admins\EditMarginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FormGUI\Admins\EditOrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +160,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="FormGUI\Admins\EditMarginWindow.xaml.cs">
+      <DependentUpon>EditMarginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FormGUI\Admins\EditOrderWindow.xaml.cs">
       <DependentUpon>EditOrderWindow.xaml</DependentUpon>
     </Compile>

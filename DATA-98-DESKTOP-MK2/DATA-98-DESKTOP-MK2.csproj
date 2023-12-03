@@ -204,13 +204,9 @@
     <Compile Include="Migrations\202310011319379_UserBanned.designer.cs">
       <DependentUpon>202310011319379_UserBanned.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202310181254333_Backup_23_10_18_15_54.cs" />
-    <Compile Include="Migrations\202310181254333_Backup_23_10_18_15_54.designer.cs">
-      <DependentUpon>202310181254333_Backup_23_10_18_15_54.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202310181300383_Backup_23_10_18_16_00.cs" />
-    <Compile Include="Migrations\202310181300383_Backup_23_10_18_16_00.designer.cs">
-      <DependentUpon>202310181300383_Backup_23_10_18_16_00.cs</DependentUpon>
+    <Compile Include="Migrations\202312031526223_UmWhatever.cs" />
+    <Compile Include="Migrations\202312031526223_UmWhatever.designer.cs">
+      <DependentUpon>202312031526223_UmWhatever.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PageGUI\OrderPage.xaml.cs">
@@ -238,11 +234,8 @@
     <EmbeddedResource Include="Migrations\202310011319379_UserBanned.resx">
       <DependentUpon>202310011319379_UserBanned.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202310181254333_Backup_23_10_18_15_54.resx">
-      <DependentUpon>202310181254333_Backup_23_10_18_15_54.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202310181300383_Backup_23_10_18_16_00.resx">
-      <DependentUpon>202310181300383_Backup_23_10_18_16_00.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312031526223_UmWhatever.resx">
+      <DependentUpon>202312031526223_UmWhatever.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

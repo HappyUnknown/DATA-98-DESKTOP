@@ -7,13 +7,13 @@ namespace DATA_98_DESKTOP_MK2.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Backup_23_10_18_15_54 : IMigrationMetadata
+    public sealed partial class UmWhatever : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Backup_23_10_18_15_54));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UmWhatever));
         
         string IMigrationMetadata.Id
         {
-            get { return "202310181254333_Backup_23_10_18_15_54"; }
+            get { return "202312031526223_UmWhatever"; }
         }
         
         string IMigrationMetadata.Source

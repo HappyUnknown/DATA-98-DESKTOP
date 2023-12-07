@@ -13,6 +13,7 @@ namespace DATA_98_DESKTOP_MK2.Entities
     {
         [Key]
         public int Id { get; set; } = 0;
+        public int OrderId { get; set; }
         public int UserId { get; set; } = 0;
         public DateTime MomentRefused { get; set; } = DateTime.MinValue;
     }

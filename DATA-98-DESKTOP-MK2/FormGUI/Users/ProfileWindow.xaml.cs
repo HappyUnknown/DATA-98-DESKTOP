@@ -180,7 +180,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                     Order globalOrder = orderDB.Orders.ToList().Where(x => x.Id == profileOrder.Id).FirstOrDefault();
                     int globalIndex = orderDB.Orders.ToList().IndexOf(globalOrder);
                     MessageBox.Show($"GLOBAL: {globalIndex}");
-                    refuseDB.Refuses.Add(new Refuse() { UserId = user.ID, MomentRefused = DateTime.Now });
+                    refuseDB.Refuses.Add(new Refuse() { UserId = user.ID, OrderId = globalOrder.Id, MomentRefused = DateTime.Now });
                     refuseDB.SaveChanges();
                     refuseDB.Dispose();
                     orderDB.QuestionOrder(globalIndex);

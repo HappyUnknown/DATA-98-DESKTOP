@@ -3,6 +3,7 @@ using DATA_98_DESKTOP_MK2.Entities;
 using DATA_98_DESKTOP_MK2.Enumerations;
 using DATA_98_DESKTOP_MK2.Extensions;
 using DATA_98_DESKTOP_MK2.PageGUI;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,7 +76,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
                             orderFound.FixPrice = int.Parse(tbFixPrice.Text);
                             orderFound.Conclusion = tbConclusion.Text;
                             orderFound.ApprovalPhase = (AgreementState)lbApprovalPhase.SelectedItem;
-                            orderFound.MediaArray = lbMediaArray.ItemsAsArray().ToString();
+                            orderFound.MediaArray = JsonConvert.SerializeObject(lbMediaArray.ItemsAsArray());
                             orderFound.MasterId = masterID;
                             orderFound.CustomerId = customerID;
 

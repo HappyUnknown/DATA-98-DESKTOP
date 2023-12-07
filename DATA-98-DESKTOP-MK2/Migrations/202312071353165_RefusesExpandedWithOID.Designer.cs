@@ -7,13 +7,13 @@ namespace DATA_98_DESKTOP_MK2.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class RefusesExpandedWithOID : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RefusesExpandedWithOID));
         
         string IMigrationMetadata.Id
         {
-            get { return "202310011159104_InitialCreate"; }
+            get { return "202312071353165_RefusesExpandedWithOID"; }
         }
         
         string IMigrationMetadata.Source

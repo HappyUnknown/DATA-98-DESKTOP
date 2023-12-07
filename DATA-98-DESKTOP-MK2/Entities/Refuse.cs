@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DATA_98_DESKTOP_MK2.Entities
 {
-    [Table("Refuses")]
+    [Table("OrderRefuses")]
     class Refuse
     {
         [Key]

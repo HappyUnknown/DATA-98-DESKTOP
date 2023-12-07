@@ -196,17 +196,13 @@
     <Compile Include="FormGUI\Users\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202310011159104_InitialCreate.cs" />
-    <Compile Include="Migrations\202310011159104_InitialCreate.designer.cs">
-      <DependentUpon>202310011159104_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202312031538526_InitialCreate.cs" />
+    <Compile Include="Migrations\202312031538526_InitialCreate.designer.cs">
+      <DependentUpon>202312031538526_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202310011319379_UserBanned.cs" />
-    <Compile Include="Migrations\202310011319379_UserBanned.designer.cs">
-      <DependentUpon>202310011319379_UserBanned.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312031526223_UmWhatever.cs" />
-    <Compile Include="Migrations\202312031526223_UmWhatever.designer.cs">
-      <DependentUpon>202312031526223_UmWhatever.cs</DependentUpon>
+    <Compile Include="Migrations\202312071353165_RefusesExpandedWithOID.cs" />
+    <Compile Include="Migrations\202312071353165_RefusesExpandedWithOID.designer.cs">
+      <DependentUpon>202312071353165_RefusesExpandedWithOID.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PageGUI\OrderPage.xaml.cs">
@@ -228,14 +224,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202310011159104_InitialCreate.resx">
-      <DependentUpon>202310011159104_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312031538526_InitialCreate.resx">
+      <DependentUpon>202312031538526_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202310011319379_UserBanned.resx">
-      <DependentUpon>202310011319379_UserBanned.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312031526223_UmWhatever.resx">
-      <DependentUpon>202312031526223_UmWhatever.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312071353165_RefusesExpandedWithOID.resx">
+      <DependentUpon>202312071353165_RefusesExpandedWithOID.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -265,6 +258,7 @@
   <ItemGroup>
     <Resource Include="statistics.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

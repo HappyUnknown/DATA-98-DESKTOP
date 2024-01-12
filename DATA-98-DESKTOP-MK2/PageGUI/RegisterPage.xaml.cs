@@ -40,7 +40,6 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
                     lblId.Content = "-";
             }
             catch (Exception ex) { MessageBox.Show($"E-14 => RegisterPage construction. {ex.Message}"); }
-            finally { db.Dispose(); }
             try
             {
                 tbEmail.Text = "john.doe@mail.com";
@@ -50,27 +49,38 @@ namespace DATA_98_DESKTOP_MK2.PageGUI
                 tbNickname.Text = "john.doe";
                 tbPassword.Text = "12345";
                 tbPhone.Text = "+380380380380";
-                var rights = typeof(AccessLevel).GetEnumValues();
-                List<AccessLevel> rightList = new List<AccessLevel>();
-                for (int i = 0; i < rights.GetLength(0); i++)
-                    rightList.Add((AccessLevel)rights.GetValue(i));
-                if (user == null)
+                try
                 {
-                    rightList.RemoveAt(rightList.Count - 1);
-                    rightList.RemoveAt(rightList.Count - 1);
+                    var rights = typeof(AccessLevel).GetEnumValues();
+                    List<AccessLevel> rightList = new List<AccessLevel>();
+                    for (int i = 0; i < rights.GetLength(0); i++)
+                        rightList.Add((AccessLevel)rights.GetValue(i));
+                    try
+                    {
+                        if (user == null)
+                        {
+                            if (db.Users.Count() > 0)
+                            {
+                                rightList.RemoveAt(rightList.Count - 1);
+                                rightList.RemoveAt(rightList.Count - 1);
+                            }
+                        }
+                        else if (user.RightsType == AccessLevel.Customer || user.RightsType == AccessLevel.Master)
+                        {
+                            rightList.RemoveAt(rightList.Count - 1);
+                            rightList.RemoveAt(rightList.Count - 1);
+                        }
+                        lbRightsType.ItemsSource = rightList;
+                        db.Dispose();
+                        DisableMargin();
+                    }
+                    catch (Exception ex) { MessageBox.Show($"RemoveAt failing: {ex.Message}"); }
                 }
-                else if (user.RightsType == AccessLevel.Customer || user.RightsType == AccessLevel.Master)
-                {
-                    rightList.RemoveAt(rightList.Count - 1);
-                    rightList.RemoveAt(rightList.Count - 1);
-                }
-                lbRightsType.ItemsSource = rightList;
-
-                DisableMargin();
+                catch (Exception ex) { MessageBox.Show($"Enumeration failing: {ex.Message}"); }
             }
             catch (Exception ex) { MessageBox.Show($"E-15 => {ex.Message}"); }
         }
-        void DisableMargin() 
+        void DisableMargin()
         {
             tbMarginPercent.IsEnabled = false;
             tbMarginPercent.Text = AppConstants.INIT_MARGIN.ToString();

@@ -40,6 +40,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                 db.Dispose();
 
                 ProfileWindow profile = new ProfileWindow(user);
+                profile.WindowState = WindowState.Maximized;
                 Close();
                 profile.ShowDialog();
             } catch (Exception ex) { MessageBox.Show($"E-37 => {ex.Message}"); } }
@@ -49,6 +50,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             try
             {
                 ProfileWindow profile = new ProfileWindow(user);
+                profile.WindowState = WindowState.Maximized;
                 Close();
                 profile.ShowDialog();
             }

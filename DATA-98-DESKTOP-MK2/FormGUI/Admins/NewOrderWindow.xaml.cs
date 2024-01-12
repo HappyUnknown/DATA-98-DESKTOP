@@ -102,9 +102,10 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
         {
             try
             {
-                ProfileWindow window = new ProfileWindow(user);
+                ProfileWindow profile = new ProfileWindow(user);
+                profile.WindowState = WindowState.Maximized;
                 Close();
-                window.ShowDialog();
+                profile.ShowDialog();
             }
             catch(Exception ex) { MessageBox.Show($"E-11 => 7{ex.Message}"); }
         }

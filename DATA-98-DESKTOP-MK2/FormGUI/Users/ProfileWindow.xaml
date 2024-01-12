@@ -50,9 +50,9 @@
                 <Label Content="Register" Margin="5 5 5 5"/>
             </Viewbox>
         </Button>
-        <Button x:Name="btnGoToAdmins" Grid.Row="3" Grid.Column="3" Grid.RowSpan="1" Click="btnGoToAdmins_Click">
+        <Button x:Name="btnGoToUsers" Grid.Row="3" Grid.Column="3" Grid.RowSpan="1" Click="btnGoToUsers_Click">
             <Viewbox>
-                <Label Content="Admins" Margin="5 5 5 5"/>
+                <Label Content="Users" Margin="5 5 5 5"/>
             </Viewbox>
         </Button>
         <Viewbox Grid.Row="4" Grid.Column="1">

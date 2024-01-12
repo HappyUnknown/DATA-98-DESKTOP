@@ -43,6 +43,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                         if (!user.Banned)
                         {
                             ProfileWindow profileWindow = new ProfileWindow(user);
+                            profileWindow.WindowState = WindowState.Maximized;
                             Close();
                             profileWindow.ShowDialog();
                         }

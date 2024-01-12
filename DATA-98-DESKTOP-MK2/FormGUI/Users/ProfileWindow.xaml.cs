@@ -39,7 +39,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
         }
         void LockAllRelative()
         {
-            btnGoToAdmins.IsEnabled = false;
+            btnGoToUsers.IsEnabled = false;
             btnGoToOrders.IsEnabled = false;
             btnGoToPool.IsEnabled = false;
             btnGoToRefuses.IsEnabled = false;
@@ -54,7 +54,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             }
             if (user.RightsType > AccessLevel.Master)
             {
-                btnGoToAdmins.IsEnabled = true;
+                btnGoToUsers.IsEnabled = true;
                 btnGoToOrders.IsEnabled = true;
                 btnGoToRefuses.IsEnabled = true;
                 btnGoToAddOrder.IsEnabled = true;
@@ -67,6 +67,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             try
             {
                 NewIssueWindow issueWindow = new NewIssueWindow(user);
+                issueWindow.WindowState = WindowState.Maximized;
                 Close();
                 issueWindow.ShowDialog();
             }
@@ -78,6 +79,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             try
             {
                 OrdersOverviewWindow overview = new OrdersOverviewWindow(user);
+                overview.WindowState = WindowState.Maximized;
                 Close();
                 overview.ShowDialog();
             }
@@ -89,6 +91,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             try
             {
                 NewOrderWindow orderWindow = new NewOrderWindow(user); // Preliminary to Close() in order to show further
+                orderWindow.WindowState = WindowState.Maximized;
                 Close();
                 orderWindow.ShowDialog();
             }
@@ -103,6 +106,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             try
             {
                 RegisterWindow registerWindow = new RegisterWindow(user); // Preliminary to Close() in order to show further
+                registerWindow.WindowState = WindowState.Maximized;
                 Close();
                 registerWindow.ShowDialog();
             }
@@ -117,6 +121,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             try
             {
                 LoginWindow signInWindow = new LoginWindow(); // Preliminary to Close() in order to show further
+                signInWindow.WindowState = WindowState.Maximized;
                 Close();
                 signInWindow.ShowDialog();
             }
@@ -126,25 +131,12 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
             }
         }
 
-        private void btnGoToAdmins_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                UsersOverviewWindow overviewWindow = new UsersOverviewWindow(user);
-                Close();
-                overviewWindow.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"E-50 => {ex.Message}");
-            }
-        }
-
         private void btnGoToPool_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 PoolWindow pool = new PoolWindow(user);
+                pool.WindowState = WindowState.Maximized;
                 Close();
                 pool.ShowDialog();
             }
@@ -179,7 +171,6 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
                     Order profileOrder = gdProfileOrders.Items[gdProfileOrders.SelectedIndex] as Order;
                     Order globalOrder = orderDB.Orders.ToList().Where(x => x.Id == profileOrder.Id).FirstOrDefault();
                     int globalIndex = orderDB.Orders.ToList().IndexOf(globalOrder);
-                    MessageBox.Show($"GLOBAL: {globalIndex}");
                     refuseDB.Refuses.Add(new Refuse() { UserId = user.ID, OrderId = globalOrder.Id, MomentRefused = DateTime.Now });
                     refuseDB.SaveChanges();
                     refuseDB.Dispose();
@@ -196,6 +187,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
         private void btnGoToRefuses_Click(object sender, RoutedEventArgs e)
         {
             RefuseOverviewWindow refuses = new RefuseOverviewWindow(user);
+            refuses.WindowState = WindowState.Maximized;
             Close();
             refuses.ShowDialog();
         }
@@ -203,8 +195,24 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Users
         private void btnGoToMargins_Click(object sender, RoutedEventArgs e)
         {
             EditMarginWindow marginWindow = new EditMarginWindow(user);
+            marginWindow.WindowState = WindowState.Maximized;
             Close();
             marginWindow.Show();
+        }
+
+        private void btnGoToUsers_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                UsersOverviewWindow overviewWindow = new UsersOverviewWindow(user);
+                overviewWindow.WindowState = WindowState.Maximized;
+                Close();
+                overviewWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"E-50 => {ex.Message}");
+            }
         }
     }
 }

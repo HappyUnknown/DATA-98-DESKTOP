@@ -41,6 +41,7 @@ namespace DATA_98_DESKTOP_MK2.FormGUI.Admins
             try
             {
                 ProfileWindow profile = new ProfileWindow(user);
+                profile.WindowState = WindowState.Maximized;
                 Close();
                 profile.ShowDialog();
             }
